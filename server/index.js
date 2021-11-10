@@ -3,14 +3,14 @@ const app = express()
 const mysql = require("mysql")
 const db = mysql.createPool({
     host: "localhost",
-    user: "new_user",
+    user: "root",
     password: "password",
     database: "healthatlums"
 
 })
 
 app.get("/", (req,res) => {
-    const sqlInsert = "INSERT INTO FAQs (faq_id, question, answer) VALUES ('Whooo am I?', 'A loooser');"
+    const sqlInsert = "INSERT INTO testing VALUES (1, 'maha');"
     
     db.query(sqlInsert, (err,result) => {
         res.send("Bye World...")
