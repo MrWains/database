@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import React from "react";
+import {useState, useEffect} from "react";
+import Axios from "axios";
 import './App.css';
 
 function App() {
+  // state variables
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
+
+  const logIn = () => 
+  {
+    Axios.post("address", {ID:id, Name:name})
+    .then(() => 
+    {
+      alert("Sucessful Insert!")
+    })
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <h2>Log In</h2>
+
+      <label>ID</label>
+      <input type="text" name="ID" onChange={(e)=>{setId(e.target.value)}}></input>
+      <label>name</label>
+      <input type="text" name="name" onChange={(e)=>{setName(e.target.value)}}></input>
+
+      <button onClick={logIn()}></button>
+      
+
     </div>
   );
 }
