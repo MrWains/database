@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
+const cors = require ("cors")
 const mysql = require("mysql")
 
 // const db = mysql.createPool({
@@ -36,7 +37,9 @@ const db = mysql.createConnection({
 //     // })
 // })
 
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.post("/api/insert", (req, res) => 
 {
