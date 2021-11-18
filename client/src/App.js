@@ -10,40 +10,43 @@ function App() {
 
   const loginStatus = () => 
   {
-    console.log("in status: ")
     Axios.get(`http://localhost:3001/api/send`)
     .then(function(response) 
     {
-      console.log(response.data);
-
-      // if error then diplay error
-
+      // console.log(response.data);
 
       // else check if 1 (display admin), 2 (display doctor), 3 (display student)
+      if (response.data === 1)
+      {
+        let lol = 0;
+      }
+      else if (response.data === 2)
+      {
+        let lol = 0;
+      }
+      else if (response.data === 3)
+      {
+        let lol = 0;
+      }
+      // if error then diplay error and do not change any page
+      else
+      {
+        alert ("Invalid Login!")
+      }
     })
   }
 
   const logIn = () => {
-    console.log("In Login: ")
-    console.log("ID: ", check_id, "Pwd: ", password)
     // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
     Axios.post("http://localhost:3001/api/checkRole_id", {Check_ID: check_id, Password: password})
     .then(() => 
     {
-      // setCheck_id("");
-      // setPassword("");
-      console.log("In login then: ")
       loginStatus();
     })
     .catch((err) => 
     {
-      console.log("In login err: ")
-      // setCheck_id("");
-      // setPassword("");
       console.log(err);
     })
-
-    
   };
   
   

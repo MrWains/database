@@ -24,9 +24,10 @@ const db = mysql.createPool({
 //   database: "heroku_26c145cc8987357",
 // });
 
-var toReturn = "";
+let toReturn = "";
 
 app.post("/api/checkRole_id", (req, res) => {
+  
   const receivedCheck_Id = req.body.Check_ID;
   const receivedPassword = req.body.Password;
 
@@ -37,20 +38,24 @@ app.post("/api/checkRole_id", (req, res) => {
     if (err || result.length === 0 )
     {
       toReturn = "Invalid Login Information";
+      res.send(toReturn)
     }
     else
     {
       // correct login info, return role_id for page display 
       toReturn = JSON.stringify(result[0].role_id);
+      res.send(toReturn)
     }
   })
 });
 
 app.get("/api/send", (req, res) => 
 {
-  res.send(toReturn)
+  if (toReturn != "")
+  {
+    res.send(toReturn)
+  }
 })
-
 
 
 // listening on port 3001
