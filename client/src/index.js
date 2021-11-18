@@ -15,3 +15,10 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+export { default as Login } from "./Login";
+export { default as Home } from "./Home";
+export { default as Home_Student } from "./Home_Student";
+export { default as Home_HW } from "./Home_HW";

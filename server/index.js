@@ -37,6 +37,7 @@ app.post("/api/checkRole_id", (req, res) => {
   {
     if (err || result.length === 0 )
     {
+      console.log(err)
       toReturn = "Invalid Login Information";
       res.send(toReturn)
     }
