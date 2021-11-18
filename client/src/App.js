@@ -21,6 +21,15 @@ function App() {
     })
   };
 
+  
+  Axios.get(`http://localhost:3001/api/send`)
+  .then(function(response) {
+    console.log( response.data);
+  })
+  // Axios.post("http://localhost:3001/api/send", {toReturn : toReturn})
+
+
+
   return (
     <div className="App">
       <h2>Log In</h2>

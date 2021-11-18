@@ -34,7 +34,8 @@ app.post("/api/checkRole_id", (req, res) => {
   const sqlFetch = "SELECT role_id FROM login WHERE check_id=? AND password=?;";
   db.query(sqlFetch, [receivedCheck_Id, receivedPassword], (err, result) => 
   {
-    if (result.length === 0)
+    console.log(err)
+    if (err || result.length === 0 )
     {
       toReturn = "Invalid Login Information";
     }
