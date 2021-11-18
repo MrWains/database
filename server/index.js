@@ -28,6 +28,10 @@ let toReturn = ""; // for fetching role_id for login
 let forReturn = ""; // for fetching student for admin
 let willReturn = ""; // for fetching doctor for admin
 
+app.get("/", (req, res) => {
+  res.send("Yay!! this works");
+});
+
 app.post("/api/addstudent", (req, res) => {
   const receivedFN = req.body.firstName;
   const receivedMN = req.body.middleName;
