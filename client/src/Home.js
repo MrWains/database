@@ -9,19 +9,52 @@ function Home() {
   const [password, setPassword] = useState("");
 
 
+  const logIn = () => {
+    // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
+    Axios.post("http://localhost:3001/api/checkRole_id", {Check_ID: check_id, Password: password})
+    .then(() => 
+    {
+      loginStatus();
+    })
+    .catch((err) => 
+    {
+      console.log(err);
+    })
+  };
+
   return (
     <div className="App">
-      <h2>HOME</h2>
+      <div className = "homepage">
+        <h2>Home Page</h2>
 
-      <label>ID</label>
-      <input type="text" name="ID" onChange={(e) => {setCheck_id(e.target.value);}}></input>
-      <label>Password</label>
-      <input type="text" name="Password" onChange={(e) => {setPassword(e.target.value);}}></input>
-      <NavLink className="nav-link" to="/">
-      <button>LogOut</button>
-      </NavLink>
+        <button onClick={logIn}>Add a student</button>
+        <button onClick={logIn}>Add a doctor</button>
+
+        <div className = "homepage_search">
+          <label>Student ID</label>
+          <input type="text" name="ID" onChange={(e) => {
+            setCheck_id(e.target.value);
+            }}/>
+
+          <button onClick={logIn}>View Information</button>
+        </div>
+
+        <div className = "homepage_search">
+          <label>Doctor ID</label>
+          <input type="text" name="ID" onChange={(e) => {
+            setCheck_id(e.target.value);
+            }}/>
+
+          <button onClick={logIn}>View Information</button>
+        </div>
+
+        <NavLink className="nav-link" to="/">
+        <button>LogOut</button>
+        </NavLink>
+      </div>
     </div>
   );
+
 }
 
 export default Home;

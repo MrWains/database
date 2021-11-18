@@ -66,16 +66,25 @@ function Login() {
 
 
   return (
-    <div className="App">
-      <h2>Log In</h2>
 
-      <label>ID</label>
-      <input type="text" name="ID" onChange={(e) => {setCheck_id(e.target.value);}}></input>
-      <label>Password</label>
-      <input type="text" name="Password" onChange={(e) => {setPassword(e.target.value);}}></input>
-      <NavLink className="nav-link" to = {roleidstate}>  
-      <button onClick={logIn}>Log In</button>
-      </NavLink>
+    <div className="App">
+      <div className = "login">
+        <h2>Log In</h2>
+
+        <label>ID</label>
+        <input type="text" name="ID" onChange={(e) => {
+          setCheck_id(e.target.value);
+        }}/>
+  
+        <label>Password</label>
+        <input type="text" name="Password" onChange={(e) => 
+          {setPassword(e.target.value);
+        }}/>
+
+        <NavLink className="nav-link" to = {roleidstate}>
+        <button onClick={logIn}>Log In</button>
+        </NavLink>
+      </div>
     </div>
   );
 }
