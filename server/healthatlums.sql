@@ -1,1 +1,1 @@
-CREATE SCHEMA `healthatlums`;
+SELECT * FROM healthatlums.testing;

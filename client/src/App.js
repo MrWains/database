@@ -5,16 +5,20 @@ import "./App.css";
 
 function App() {
   // state variables
-  const [id, setId] = useState("");
-  const [name, setName] = useState("");
+  const [check_id, setCheck_id] = useState("");
+  const [password, setPassword] = useState("");
 
   const logIn = () => {
-    Axios.post("https://healthatlums-database.herokuapp.com/api/insert", {
-      ID: id,
-      Name: name,
-    }).then(() => {
+    // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
+    Axios.post("http://localhost:3001/api/checkRole_id", {Check_ID: check_id, Password: password})
+    .then(() => 
+    {
       alert("Sucessful Insert!");
-    });
+    })
+    .catch((err) => 
+    {
+      console.log(err);
+    })
   };
 
   return (
@@ -22,23 +26,11 @@ function App() {
       <h2>Log In</h2>
 
       <label>ID</label>
-      <input
-        type="text"
-        name="ID"
-        onChange={(e) => {
-          setId(e.target.value);
-        }}
-      ></input>
-      <label>name</label>
-      <input
-        type="text"
-        name="name"
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      ></input>
+      <input type="text" name="ID" onChange={(e) => {setCheck_id(e.target.value);}}></input>
+      <label>Password</label>
+      <input type="text" name="Password" onChange={(e) => {setPassword(e.target.value);}}></input>
 
-      <button onClick={logIn()}></button>
+      <button onClick={logIn}>Log In</button>
     </div>
   );
 }
