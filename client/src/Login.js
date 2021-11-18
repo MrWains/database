@@ -8,25 +8,19 @@ function Login() {
   // state variables
   const [check_id, setCheck_id] = useState("");
   const [password, setPassword] = useState("");
-  const [roleidstate, setroleidstate] = useState("/");
+  const [responseData, setResponseData] = useState(0);
 
   const loginStatus = () => {
-    Axios.get(`https://healthatlums-database.herokuapp.com/api/send`).then(
+    Axios.get("https://healthatlums-database.herokuapp.com/api/send").then(
       function (response) {
-        // console.log(response.data);
-
-        // else check if 1 (display admin), 2 (display doctor), 3 (display student)
-        console.log(response.data);
         if (response.data === 1) {
-          <Navigate to="/admin" />;
+          setResponseData(1);
         } else if (response.data === 2) {
-          <Navigate to="/homestudent" />;
+          setResponseData(2);
         } else if (response.data === 3) {
-          <Navigate to="/homehw" />;
-        }
-        // if error then diplay error and do not change any page
-        else {
-          alert("Invalid Login!");
+          setResponseData(3);
+        } else {
+          alert("Invalid Login Information!");
         }
       }
     );
@@ -48,31 +42,35 @@ function Login() {
 
   return (
     <div className="App">
-      <div className="login">
-        <h2>Log In</h2>
+      {responseData === 1 ? (
+        <Navigate to="/home" />
+      ) : responseData === 2 ? (
+        <Navigate to="/homestudent" />
+      ) : responseData === 3 ? (
+        <Navigate to="/homehw" />
+      ) : (
+        <div className="login`">
+          <h2>Log In</h2>
+          <label>ID</label>
+          <input
+            type="text"
+            name="ID"
+            onChange={(e) => {
+              setCheck_id(e.target.value);
+            }}
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            name="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
 
-        <label>ID</label>
-        <input
-          type="text"
-          name="ID"
-          onChange={(e) => {
-            setCheck_id(e.target.value);
-          }}
-        />
-
-        <label>Password</label>
-        <input
-          type="password"
-          name="Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-
-        <NavLink className="nav-link" to={roleidstate}>
           <button onClick={logIn}>Log In</button>
-        </NavLink>
-      </div>
+        </div>
+      )}
     </div>
   );
 }

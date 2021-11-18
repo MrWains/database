@@ -18,7 +18,7 @@ import { Home_HW, Home_Student, Add_Student, Add_Doctor } from ".";
 export default () => (
   <MemoryRouter>
     <Routes>
-      <Route exact path="/" element={<LogIn />} />
+      <Route exact path="/" element={<Login />} />
       <Route exact path="/home" element={<Home />} />
       <Route exact path="/homestudent" element={<Home_Student />} />
       <Route exact path="/homehw" element={<Home_HW />} />
