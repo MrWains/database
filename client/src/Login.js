@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import "./App.css";
-import { NavLink } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function Login() {
   // state variables
@@ -18,17 +18,11 @@ function Login() {
         // else check if 1 (display admin), 2 (display doctor), 3 (display student)
         console.log(response.data);
         if (response.data === 1) {
-          <NavLink className="nav-link" to={roleidstate}>
-            {setroleidstate("/home")}
-          </NavLink>;
+          <Navigate to="/admin" />;
         } else if (response.data === 2) {
-          <NavLink className="nav-link" to={roleidstate}>
-            {setroleidstate("/homestudent")}
-          </NavLink>;
+          <Navigate to="/homestudent" />;
         } else if (response.data === 3) {
-          <NavLink className="nav-link" to={roleidstate}>
-            {setroleidstate("/homehw")}
-          </NavLink>;
+          <Navigate to="/homehw" />;
         }
         // if error then diplay error and do not change any page
         else {
@@ -68,7 +62,7 @@ function Login() {
 
         <label>Password</label>
         <input
-          type="text"
+          type="password"
           name="Password"
           onChange={(e) => {
             setPassword(e.target.value);
