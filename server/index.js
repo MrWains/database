@@ -24,7 +24,9 @@ const db = mysql.createPool({
 //   database: "heroku_26c145cc8987357",
 // });
 
-let toReturn = "";
+let toReturn = "";  // for fetching role_id for login
+let forReturn = ""; // for fetching student for admin
+let willReturn = "" // for fetching doctor for admin
 
 app.post("/api/checkRole_id", (req, res) => {
   
@@ -32,12 +34,12 @@ app.post("/api/checkRole_id", (req, res) => {
   const receivedPassword = req.body.Password;
 
   // see role_id against check_id to determine table to check
-  const sqlFetch = "SELECT role_id FROM login WHERE username=? AND password=?;";
+  const sqlFetch = "SELECT role_id FROM login WHERE check_id=? AND password=?;";
   db.query(sqlFetch, [receivedCheck_Id, receivedPassword], (err, result) => 
   {
     if (err || result.length === 0 )
     {
-      console.log(err)
+      // console.log(err)
       toReturn = "Invalid Login Information";
       res.send(toReturn)
     }
@@ -56,7 +58,66 @@ app.get("/api/send", (req, res) =>
   {
     res.send(toReturn)
   }
-})
+});
+
+app.post("/api/fetchStudentID", (req, res) => 
+{
+  const receivedStudent_Id = req.body.Student_ID;
+
+  // fetch student against the given ID
+  const sqlFetch = "SELECT * FROM student WHERE idstudent=?;";
+  db.query(sqlFetch, [receivedStudent_Id], (err, result) => 
+  {
+    if (err || result.length === 0 )
+    {
+      forReturn = "Invalid Student ID Entered!";
+      res.send(forReturn)
+    }
+    else
+    {
+      forReturn = JSON.stringify(result[0]);
+      res.send(forReturn)
+    }
+  })
+});
+
+app.get("/api/fetchStudentID", (req, res) => 
+{
+  if (forReturn != "")
+  {
+    res.send(forReturn)
+  }
+});
+
+app.post("/api/fetchDoctorID", (req, res) => 
+{
+  const receivedDoctor_Id = req.body.Doctor_ID;
+
+  // fetch student against the given ID
+  const sqlFetch = "SELECT * FROM healthcare_worker WHERE idhealthcare_worker=?;";
+  db.query(sqlFetch, [receivedDoctor_Id], (err, result) => 
+  {
+    if (err || result.length === 0 )
+    {
+      willReturn = "Invalid Student ID Entered!";
+      res.send(willReturn)
+    }
+    else
+    {
+      willReturn = JSON.stringify(result[0]);
+      res.send(willReturn)
+    }
+  })
+});
+
+app.get("/api/fetchDoctorID", (req, res) => 
+{
+  if (willReturn != "")
+  {
+    res.send(willReturn)
+  }
+});
+
 
 
 // listening on port 3001
