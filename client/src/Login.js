@@ -8,6 +8,7 @@ function Login() {
   // state variables
   const [check_id, setCheck_id] = useState("");
   const [password, setPassword] = useState("");
+  const [roleidstate, setroleidstate] = useState("/");
 
   const loginStatus = () => 
   {
@@ -19,16 +20,26 @@ function Login() {
       // else check if 1 (display admin), 2 (display doctor), 3 (display student)
       console.log(response.data)
       if (response.data === 1)
+      
       {
-        <NavLink className="nav-link" to="/home"/>
+        <NavLink className="nav-link" to = {roleidstate}>  
+        
+        {setroleidstate("/home")}
+        </NavLink>
       }
       else if (response.data === 2)
       {
-        <NavLink className="nav-link" to="/homestudent"/>
+        <NavLink className="nav-link" to = {roleidstate}>  
+        
+        {setroleidstate("/homestudent")}
+        </NavLink>
       }
       else if (response.data === 3)
       {
-        <NavLink className="nav-link" to="/homehw"/>     }
+        <NavLink className="nav-link" to = {roleidstate}>  
+        
+        {setroleidstate("/homehw")}
+        </NavLink>  }
       // if error then diplay error and do not change any page
       else
       {
@@ -62,8 +73,9 @@ function Login() {
       <input type="text" name="ID" onChange={(e) => {setCheck_id(e.target.value);}}></input>
       <label>Password</label>
       <input type="text" name="Password" onChange={(e) => {setPassword(e.target.value);}}></input>
-
+      <NavLink className="nav-link" to = {roleidstate}>  
       <button onClick={logIn}>Log In</button>
+      </NavLink>
     </div>
   );
 }
