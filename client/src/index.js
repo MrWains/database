@@ -22,3 +22,5 @@ export { default as Login } from "./Login";
 export { default as Home } from "./Home";
 export { default as Home_Student } from "./Home_Student";
 export { default as Home_HW } from "./Home_HW";
+export { default as Add_Student } from "./Add_Student";
+export { default as Add_Doctor } from "./Add_Doctor";
