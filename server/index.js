@@ -75,7 +75,7 @@ app.post("/api/checkRole_id", (req, res) => {
   const receivedPassword = req.body.Password;
 
   // see role_id against check_id to determine table to check
-  const sqlFetch = "SELECT role_id FROM login WHERE username=? AND password=?;";
+  const sqlFetch = "SELECT role_id FROM login WHERE check_id=? AND password=?;";
   db.query(sqlFetch, [receivedCheck_Id, receivedPassword], (err, result) => 
   {
     if (err || result.length === 0 )
