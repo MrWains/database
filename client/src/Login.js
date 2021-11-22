@@ -1,25 +1,24 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Axios from "axios";
 import "./App.css";
 import { Navigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import counterAtom from "./counter";
+
+// import counterAtom from "./counter";
 
 function Login() {
   // state variables
   const [check_id, setCheck_id] = useState("");
   const [password, setPassword] = useState("");
   const [responseData, setResponseData] = useState(0);
-  const [count, setCount] = useRecoilState(counterAtom);
+  // const [count, setCount] = useRecoilState(counterAtom);
 
   const loginStatus = () => {
     Axios.get("https://healthatlums-database.herokuapp.com/api/send").then(
       function (response) {
         if (response.data === 1) {
-          console.log(count);
           setResponseData(1);
-          setCount(check_id);
         } else if (response.data === 2) {
           setResponseData(2);
         } else if (response.data === 3) {

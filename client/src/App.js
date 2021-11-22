@@ -1,20 +1,13 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Axios from "axios";
+// import React from "react";
+// import { useState, useEffect } from "react";
+// import Axios from "axios";
 import "./App.css";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import "./index.css";
-import { RecoilRoot } from "recoil";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 
-// import {
-//   Home,
-//   Login
-// } from ".\components";
-
-import Home from "./Home";
-import Login from "./Login";
-import { Home_HW, Home_Student, Add_Student, Add_Doctor } from ".";
+import { Home, Login, Home_HW, Home_Student, Add_Student, Add_Doctor } from ".";
 
 export default () => (
   <RecoilRoot>

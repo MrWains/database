@@ -2,18 +2,15 @@ import React from "react";
 import Axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import counterAtom from "./counter";
+// import { useRecoilState } from "recoil";
+
+// import counterAtom from "./counter";
 
 function Home() {
   // state variables
-  //const [check_id, setCheck_id] = useState("");
-  //const [password, setPassword] = useState("");
-  // const [roleidstate, setroleidstate] = useState("/home");
   const [student_id, setStudent_id] = useState("");
   const [doctor_id, setDoctor_id] = useState("");
-  const [roleidstate, setroleidstate] = useState("/home");
-  const [count, setCount] = useRecoilState(counterAtom);
+  // const [count, setCount] = useRecoilState(counterAtom);
 
   const displayFetchedStudent = () => {
     Axios.get("https://healthatlums-database.herokuapp.com/api/fetchStudentID")
@@ -62,7 +59,7 @@ function Home() {
         console.log(err);
       });
   };
-  console.log("in admin", count);
+  
   return (
     <div className="App">
       <div className="homepage">
