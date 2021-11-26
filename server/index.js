@@ -165,12 +165,12 @@ app.get("/api/fetchStudentID", (req, res) => {
 app.post("/api/fetchDoctorID", (req, res) => {
   const receivedDoctor_Id = req.body.Doctor_ID;
 
-  // fetch student against the given ID
+  // fetch Doctor against the given ID
   const sqlFetch =
     "SELECT * FROM healthcare_worker WHERE idhealthcare_worker=?;";
   db.query(sqlFetch, [receivedDoctor_Id], (err, result) => {
     if (err || result.length === 0) {
-      willReturn = "Invalid Student ID Entered!";
+      willReturn = "Invalid Doctor ID Entered!";
       res.send(willReturn);
     } else {
       willReturn = JSON.stringify(result[0]);
