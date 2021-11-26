@@ -1,10 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import "./App.css";
 import { NavLink } from "react-router-dom";
 
-function AddStudent() {
+function Add_Student() {
   // state variables
   const [firstName, setfirstName] = useState("");
   const [middleName, setmiddleName] = useState("");
@@ -15,7 +15,9 @@ function AddStudent() {
   const [emergencyFName, setEmergencyFName] = useState("");
   const [emergencyLName, setEmergencyLName] = useState("");
   const [rollNumber, setrollNumber] = useState(null);
-  const [role_id, setrole_id] = useState(0);
+  const [role_id, setrole_id] = useState(2);
+  const [password, setPassword] = useState("");
+  const [roleidstate, setroleidstate] = useState("/addstudent");
 
   const addStudent = () => {
     // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
@@ -30,6 +32,7 @@ function AddStudent() {
       role_id: role_id,
       emergencyFName: emergencyFName,
       emergencyLName: emergencyLName,
+      password: password,
     })
       .then(() => {
         console.log("record_added");
@@ -46,7 +49,6 @@ function AddStudent() {
         <label>First Name</label>
         <input
           type="text"
-          name="ID"
           onChange={(e) => {
             setfirstName(e.target.value);
           }}
@@ -55,7 +57,6 @@ function AddStudent() {
         <label>Middle Name</label>
         <input
           type="text"
-          name="Password"
           onChange={(e) => {
             setmiddleName(e.target.value);
           }}
@@ -64,7 +65,6 @@ function AddStudent() {
         <label>Last Name</label>
         <input
           type="text"
-          name="ID"
           onChange={(e) => {
             setlastName(e.target.value);
           }}
@@ -73,7 +73,6 @@ function AddStudent() {
         <label>Roll Number</label>
         <input
           type="text"
-          name="ID"
           onChange={(e) => {
             setrollNumber(e.target.value);
           }}
@@ -82,43 +81,22 @@ function AddStudent() {
         <label>Contact Number</label>
         <input
           type="text"
-          name="Password"
           onChange={(e) => {
             setcontactNumber(e.target.value);
-          }}
-        />
-
-        <label>Emergency Contact Number</label>
-        <input
-          type="text"
-          name="Password"
-          onChange={(e) => {
-            setEmergency(e.target.value);
           }}
         />
 
         <label>Batch</label>
         <input
           type="text"
-          name="ID"
           onChange={(e) => {
             setBatch(e.target.value);
-          }}
-        />
-
-        <label>Role_ID</label>
-        <input
-          type="text"
-          name="Password"
-          onChange={(e) => {
-            setrole_id(e.target.value);
           }}
         />
 
         <label>Emergency First Name</label>
         <input
           type="text"
-          name="Password"
           onChange={(e) => {
             setEmergencyFName(e.target.value);
           }}
@@ -127,9 +105,24 @@ function AddStudent() {
         <label>Emergency Last Name</label>
         <input
           type="text"
-          name="Password"
           onChange={(e) => {
             setEmergencyLName(e.target.value);
+          }}
+        />
+
+        <label>Emergency Contact Number</label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setEmergency(e.target.value);
+          }}
+        />
+
+        <label>Password </label>
+        <input
+          type="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
           }}
         />
 
@@ -145,4 +138,4 @@ function AddStudent() {
   );
 }
 
-export default AddStudent;
+export default Add_Student;

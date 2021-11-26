@@ -43,10 +43,11 @@ app.post("/api/addstudent", (req, res) => {
   const receivedID = req.body.role_id;
   const receivedemergencyFName = req.body.emergencyFName;
   const receivedemergencyLName = req.body.emergencyLName;
+  const receivedPassword = req.body.password;
 
   // see role_id against check_id to determine table to check
   const sqlInsert =
-    "INSERT INTO student VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? ) ;";
+    "INSERT INTO student VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ) ;";
   db.query(
     sqlInsert,
     [
@@ -60,7 +61,18 @@ app.post("/api/addstudent", (req, res) => {
       receivedemergencyFName,
       receivedemergencyLName,
       receivedemergency,
+      receivedPassword,
     ],
+    (err, result) => {
+      console.log("err", err);
+      console.log("DONE", result);
+      res.send("success");
+    }
+  );
+  const sqlAddAccount = "INSERT INTO login VALUES (?,?,?);";
+  db.query(
+    sqlAddAccount,
+    [receivedRollNumber, receivedID, receivedPassword],
     (err, result) => {
       console.log("err", err);
       console.log("DONE", result);
@@ -92,6 +104,7 @@ app.post("/api/adddoctor", (req, res) => {
     (err, result) => {
       console.log("err", err);
       console.log("DONE", result);
+      res.send("successfully");
     }
   );
 });
@@ -165,12 +178,12 @@ app.get("/api/fetchStudentID", (req, res) => {
 app.post("/api/fetchDoctorID", (req, res) => {
   const receivedDoctor_Id = req.body.Doctor_ID;
 
-  // fetch Doctor against the given ID
+  // fetch student against the given ID
   const sqlFetch =
     "SELECT * FROM healthcare_worker WHERE idhealthcare_worker=?;";
   db.query(sqlFetch, [receivedDoctor_Id], (err, result) => {
     if (err || result.length === 0) {
-      willReturn = "Invalid Doctor ID Entered!";
+      willReturn = "Invalid Student ID Entered!";
       res.send(willReturn);
     } else {
       willReturn = JSON.stringify(result[0]);
