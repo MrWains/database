@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
@@ -16,11 +16,16 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-
-
 export { default as Login } from "./Login";
 export { default as Home } from "./Home";
-export { default as Home_Student } from "./Home_Student";
-export { default as Home_HW } from "./Home_HW";
-export { default as Add_Student } from "./Add_Student";
-export { default as Add_Doctor } from "./Add_Doctor";
+export { default as HomeStudent } from "./HomeStudent";
+export { default as HomeHW } from "./HomeHW";
+export { default as AddStudent } from "./AddStudent";
+export { default as AddDoctor } from "./AddDoctor";
+export { default as ChangePasswordStudent } from "./ChangePasswordStudent";
+export { default as ComplaintSuggestion } from "./ComplaintSuggestion";
+export { default as UpdateEmergencyContact } from "./UpdateEmergencyContact";
+export { default as UpdateMedicalProfile } from "./UpdateMedicalProfile";
+export { default as ViewContactUs } from "./ViewContactUs";
+export { default as ViewDoctorsList } from "./ViewDoctorsList";
+export { default as ViewProfileStudent } from "./ViewProfileStudent";

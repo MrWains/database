@@ -1,10 +1,10 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Axios from "axios";
 import "./App.css";
 import { NavLink } from "react-router-dom";
 
-function Add_Student() {
+function AddStudent() {
   // state variables
   const [firstName, setfirstName] = useState("");
   const [middleName, setmiddleName] = useState("");
@@ -16,7 +16,6 @@ function Add_Student() {
   const [emergencyLName, setEmergencyLName] = useState("");
   const [rollNumber, setrollNumber] = useState(null);
   const [role_id, setrole_id] = useState(0);
-  const [roleidstate, setroleidstate] = useState("/addstudent");
 
   const addStudent = () => {
     // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
@@ -146,4 +145,4 @@ function Add_Student() {
   );
 }
 
-export default Add_Student;
+export default AddStudent;
