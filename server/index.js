@@ -246,6 +246,29 @@ app.get("/api/sendContactUs", (req, res) => {
   }
 });
 
+// add student's complain to feedback
+app.post("/api/addComplaint_student", (req, res) => {
+
+  const receivedID = req.body.Complain_ID;
+  const receivedTitle = req.body.Complain_Title;
+  const receivedDescription = req.body.Complain_Description; 
+  const receivedUID = req.body.User_ID; 
+
+
+  // INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);
+  const sqlInsert = "INSERT INTO feedback (idfeedback, title, description, user_id) VALUES (?,?,?,?);";
+  db.query(sqlInsert, [receivedID, receivedTitle, receivedDescription, receivedUID], (err, result) => {
+    toReturn = "Update Query Run";
+    res.send(toReturn);
+  });
+
+
+
+
+
+
+});
+
 
 
 // listening on port 3001
