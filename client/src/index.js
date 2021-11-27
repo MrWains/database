@@ -29,3 +29,4 @@ export { default as UpdateMedicalProfile } from "./UpdateMedicalProfile";
 export { default as ViewContactUs } from "./ViewContactUs";
 export { default as ViewDoctorsList } from "./ViewDoctorsList";
 export { default as ViewProfileStudent } from "./ViewProfileStudent";
+export { default as ViewComplaintsSuggestions } from "./ViewComplaintsSuggestions";
