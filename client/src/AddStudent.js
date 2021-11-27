@@ -20,8 +20,8 @@ function Add_Student() {
   const [roleidstate, setroleidstate] = useState("/addstudent");
 
   const addStudent = () => {
-    // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
-    Axios.post("https://healthatlums-database.herokuapp.com/api/addstudent", {
+    // Axios.post("https://healthatlums-database.herokuapp.com/api/addstudent", {
+    Axios.post("http://localhost:3001/api/addstudent", {
       firstName: firstName,
       middleName: middleName,
       lastName: lastName,

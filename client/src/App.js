@@ -22,6 +22,7 @@ import {
   ViewProfileStudent,
   ChangePasswordStudent,
 } from ".";
+
 const App = () => {
   return (
     <RecoilRoot>

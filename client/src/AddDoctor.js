@@ -7,21 +7,23 @@ import { NavLink } from "react-router-dom";
 function AddDoctor() {
   // state variables
   const [workerID, setworkerID] = useState("");
-  const [role_id, setrole_id] = useState(0);
+  const [role_id, setrole_id] = useState(3);
   const [firstName, setfirstName] = useState("");
   const [middleName, setmiddleName] = useState("");
   const [lastName, setlastName] = useState("");
   const [specialization, setSpecialization] = useState("");
+  const [password, setPassword] = useState("");
 
   const adddoctor = () => {
-    // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
-    Axios.post("https://healthatlums-database.herokuapp.com/api/adddoctor", {
+    // Axios.post("https://healthatlums-database.herokuapp.com/api/adddoctor", {
+    Axios.post("https://localhost:3001/api/adddoctor", {
       workerID: workerID,
       role_id: role_id,
       firstName: firstName,
       middleName: middleName,
       lastName: lastName,
       specialziation: specialization,
+      password: password,
     })
       .then(() => {
         console.log("record_added");
@@ -42,15 +44,6 @@ function AddDoctor() {
           name="ID"
           onChange={(e) => {
             setworkerID(e.target.value);
-          }}
-        />
-
-        <label>role_id</label>
-        <input
-          type="text"
-          name="ID"
-          onChange={(e) => {
-            setrole_id(e.target.value);
           }}
         />
 
@@ -87,6 +80,14 @@ function AddDoctor() {
           name="ID"
           onChange={(e) => {
             setSpecialization(e.target.value);
+          }}
+        />
+
+        <label>Password</label>
+        <input
+          type="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
           }}
         />
 

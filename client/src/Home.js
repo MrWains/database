@@ -2,18 +2,15 @@ import React from "react";
 import Axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-// import { useRecoilState } from "recoil";
-
-// import counterAtom from "./counter";
 
 function Home() {
   // state variables
   const [student_id, setStudent_id] = useState("");
   const [doctor_id, setDoctor_id] = useState("");
-  // const [count, setCount] = useRecoilState(counterAtom);
 
   const displayFetchedStudent = () => {
-    Axios.get("https://healthatlums-database.herokuapp.com/api/fetchStudentID")
+    // Axios.get("https://healthatlums-database.herokuapp.com/api/fetchStudentID")
+    Axios.get("http://localhost:3001/api/fetchStudentID")
       .then(function (response) {
         console.log(response.data); /////////////////////// fetched from backend and now needs to be displayed
       })
@@ -23,10 +20,8 @@ function Home() {
   };
 
   const fetchStudentID = () => {
-    Axios.post(
-      "https://healthatlums-database.herokuapp.com/api/fetchStudentID",
-      { Student_ID: student_id }
-    )
+    // Axios.post("https://healthatlums-database.herokuapp.com/api/fetchStudentID", { Student_ID: student_id })
+    Axios.post("http://localhost:3001/api/fetchStudentID", { Student_ID: student_id })
       .then(() => {
         displayFetchedStudent();
       })
@@ -36,7 +31,8 @@ function Home() {
   };
 
   const displayFetchedDoctor = () => {
-    Axios.get("https://healthatlums-database.herokuapp.com/api/fetchDoctorID")
+    // Axios.get("https://healthatlums-database.herokuapp.com/api/fetchDoctorID")
+    Axios.get("http://localhost:3001/api/fetchDoctorID")
       .then(function (response) {
         console.log(response.data); /////////////////////// fetched from backend and now needs to be displayed
       })
@@ -46,12 +42,8 @@ function Home() {
   };
 
   const fetchDoctorID = () => {
-    Axios.post(
-      "https://healthatlums-database.herokuapp.com/api/fetchDoctorID",
-      {
-        Doctor_ID: doctor_id,
-      }
-    )
+    // Axios.post("https://healthatlums-database.herokuapp.com/api/fetchDoctorID", { Doctor_ID: doctor_id,})
+    Axios.post("http://localhost:3001/api/fetchDoctorID", { Doctor_ID: doctor_id,})
       .then(() => {
         displayFetchedDoctor();
       })

@@ -8,25 +8,26 @@ app.use(cors());
 const mysql = require("mysql");
 const PORT = 3001;
 
-// const db = mysql.createPool({
-//     host: "localhost",
-//     user: "root",
-//     password: "password",
-//     database: "localSchema"
-// })
+const db = mysql.createPool({
+    host: "localhost",
+    user: "root",
+    password: "password",
+    database: "localSchema"
+})
 
 // heroku setup
 // mysql://ba41ba76295c24:421b299c@eu-cdbr-west-01.cleardb.com/heroku_26c145cc8987357?reconnect=true
-const db = mysql.createPool({
-  host: "eu-cdbr-west-01.cleardb.com",
-  user: "ba41ba76295c24",
-  password: "421b299c",
-  database: "heroku_26c145cc8987357",
-});
+// const db = mysql.createPool({
+//   host: "eu-cdbr-west-01.cleardb.com",
+//   user: "ba41ba76295c24",
+//   password: "421b299c",
+//   database: "heroku_26c145cc8987357",
+// });
 
 let toReturn = ""; // for fetching role_id for login
 let forReturn = ""; // for fetching student for admin
 let willReturn = ""; // for fetching doctor for admin
+let shouldReturn = "" // for fetching contact us
 
 app.get("/", (req, res) => {
   res.send("Yay!! this works");
@@ -87,10 +88,11 @@ app.post("/api/adddoctor", (req, res) => {
   const receivedworkerID = req.body.workerID;
   const receivedID = req.body.role_id;
   const receivedspecialization = req.body.specialziation;
+  const receivedPassword = req.body.password;
 
   // see role_id against check_id to determine table to check
   const sqlInsert =
-    "INSERT INTO healthcare_worker VALUES (? , ? , ? , ? , ? , ? ) ;";
+    "INSERT INTO healthcare_worker VALUES (? , ? , ? , ? , ? , ? ,?) ;";
   db.query(
     sqlInsert,
     [
@@ -100,11 +102,22 @@ app.post("/api/adddoctor", (req, res) => {
       receivedMN,
       receivedLN,
       receivedspecialization,
+      receivedPassword,
     ],
     (err, result) => {
       console.log("err", err);
       console.log("DONE", result);
       res.send("successfully");
+    }
+  );
+
+  const sqlAddAccount = "INSERT INTO login VALUES (?,?,?);";
+  db.query(
+    sqlAddAccount,
+    [receivedworkerID, receivedID, receivedPassword],
+    (err, result) => {
+      console.log("err", err);
+      console.log("DONE", result);
     }
   );
 });
@@ -197,6 +210,43 @@ app.get("/api/fetchDoctorID", (req, res) => {
     res.send(willReturn);
   }
 });
+
+// update student's password
+app.post("/api/updatePassword_student", (req, res) => {
+  
+  const receivedCheck_Id = req.body.Check_ID;
+  const receivedNewPassword = req.body.New_Password; 
+
+  const sqlUpdate = "UPDATE login SET password=? WHERE check_id=?;";
+  db.query(sqlUpdate, [receivedNewPassword, receivedCheck_Id], (err, result) => {
+    toReturn = "Update Query Run";
+    res.send(toReturn);
+  });
+});
+
+// contact us
+app.post("/api/contactus", (req, res) => {
+  
+  const sqlFetch = "SELECT address, phone_num FROM contact_us";
+  db.query(sqlFetch, (err, result) => {
+    if (err || result.length === 0) {
+      toReturn = "Query Failed to Execute!";
+      res.send(toReturn);
+    } else {
+      shouldReturn = result[0];
+      res.send(shouldReturn);
+    }
+  });
+});
+
+// contact us sender
+app.get("/api/sendContactUs", (req, res) => {
+  if (shouldReturn != "") {
+    res.send(shouldReturn);
+  }
+});
+
+
 
 // listening on port 3001
 app.listen(process.env.PORT || PORT, () => {

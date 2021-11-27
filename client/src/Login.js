@@ -3,19 +3,21 @@ import { useState } from "react";
 import Axios from "axios";
 import "./App.css";
 import { Navigate } from "react-router-dom";
-// import { useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 
-// import counterAtom from "./counter";
+import passwordAtom from "./atoms/password";
+import checkIDAtom from "./atoms/checkID";
 
 function Login() {
   // state variables
-  const [check_id, setCheck_id] = useState("");
-  const [password, setPassword] = useState("");
   const [responseData, setResponseData] = useState(0);
-  // const [count, setCount] = useRecoilState(counterAtom);
+  
+  const [password, setPassword] = useRecoilState(passwordAtom);
+  const [check_id, setCheck_id] = useRecoilState(checkIDAtom);
 
   const loginStatus = () => {
-    Axios.get("https://healthatlums-database.herokuapp.com/api/send").then(
+    // Axios.get("http://healthatlums-database.herokuapp.com/api/send").then(
+    Axios.get("http://localhost:3001/api/send").then(
       function (response) {
         if (response.data === 1) {
           setResponseData(1);
@@ -31,8 +33,11 @@ function Login() {
   };
 
   const logIn = () => {
-    // Axios.post("https://healthatlums-database.herokuapp.com/api/insert/", {ID: id, Name: name,})
-    Axios.post("https://healthatlums-database.herokuapp.com/api/checkRole_id", {
+    // Axios.post("https://healthatlums-database.herokuapp.com/api/checkRole_id", {
+    //   Check_ID: check_id,
+    //   Password: password,
+    // })
+    Axios.post("http://localhost:3001/api/checkRole_id", {
       Check_ID: check_id,
       Password: password,
     })
