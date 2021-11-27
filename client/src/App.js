@@ -1,5 +1,6 @@
 import "./App.css";
 import "./index.css";
+import React from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 
@@ -31,14 +32,38 @@ const App = () => {
           <Route exact path="/homehw" element={<HomeHW />} />
           <Route exact path="/addstudent" element={<AddStudent />} />
           <Route exact path="/adddoctor" element={<AddDoctor />} />
-          <Route exact path="/complaintsuggestion" element={<ComplaintSuggestion />} />
+          <Route
+            exact
+            path="/complaintsuggestion"
+            element={<ComplaintSuggestion />}
+          />
           <Route exact path="/viewcontactus" element={<ViewContactUs />} />
-          <Route exact path="/updateemergency" element={<UpdateEmergencyContact />} />
-          <Route exact path="/updatemedicalprofile" element={<UpdateMedicalProfile />} />
+          <Route
+            exact
+            path="/updateemergency"
+            element={<UpdateEmergencyContact />}
+          />
+          <Route
+            exact
+            path="/updatemedicalprofile"
+            element={<UpdateMedicalProfile />}
+          />
           <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
-          <Route exact path="/viewprofilestudent" element={<ViewProfileStudent />} />
-          <Route exact path="/changepasswordstudent" element={<ChangePasswordStudent />} />
-          <Route exact path="/viewcomplaintssuggestions" element={<ViewComplaintsSuggestions />} />
+          <Route
+            exact
+            path="/viewprofilestudent"
+            element={<ViewProfileStudent />}
+          />
+          <Route
+            exact
+            path="/changepasswordstudent"
+            element={<ChangePasswordStudent />}
+          />
+          <Route
+            exact
+            path="/viewcomplaintssuggestions"
+            element={<ViewComplaintsSuggestions />}
+          />
         </Routes>
       </MemoryRouter>
     </RecoilRoot>
