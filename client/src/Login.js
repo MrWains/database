@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 
 import passwordAtom from "./atoms/password";
 import checkIDAtom from "./atoms/checkID";
+import roleIDAtom from "./atoms/roleID";
 
 function Login() {
   // state variables
@@ -14,16 +15,20 @@ function Login() {
   
   const [password, setPassword] = useRecoilState(passwordAtom);
   const [check_id, setCheck_id] = useRecoilState(checkIDAtom);
+  const [role_id, setRole_id] = useRecoilState(roleIDAtom);
 
   const loginStatus = () => {
     // Axios.get("http://healthatlums-database.herokuapp.com/api/send").then(
     Axios.get("http://localhost:3001/api/send").then(
       function (response) {
         if (response.data === 1) {
+          setRole_id(1);
           setResponseData(1);
         } else if (response.data === 2) {
+          setRole_id(2);
           setResponseData(2);
         } else if (response.data === 3) {
+          setRole_id(3);
           setResponseData(3);
         } else {
           alert("Invalid Login Information!");
