@@ -369,7 +369,8 @@ app.post("/api/updatedoctorprofile", (req, res) => {
   const receivedHW_ID = req.body.Check_ID;
 
   console.log("hereeee: ", receivedFirstName, receivedMiddleName, receivedLastName, receivedspecialization, receivedHW_ID);
-  
+
+  const sqlUpdate = "UPDATE healthcare_worker SET first_name=?, middle_name=?, last_name=?, specialization=? WHERE idhealthcare_worker=?;";
   db.query(sqlUpdate, [receivedFirstName, receivedMiddleName, receivedLastName, receivedspecialization, receivedHW_ID], (err, result) => {
       toReturn = "Update Query Run";
       res.send(toReturn);

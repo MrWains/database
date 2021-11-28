@@ -51,6 +51,9 @@ function HomeStudent() {
     .then(() => {
       Axios.get("http://localhost:3001/api/fetchDoctorID")
       .then(function (response) {
+
+        console.log(response.data);
+
         setFirstNameDoctor(response.data.first_name);
         setMiddleNameDoctor(response.data.middle_name);
         setLastNameDoctor(response.data.last_name);
