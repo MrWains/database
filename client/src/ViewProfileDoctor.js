@@ -4,6 +4,7 @@ import Axios from "axios";
 import "./App.css";
 import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
+
 import checkIDAtom from "./atoms/checkID";
 
 function ViewProfileDoctor() {
@@ -17,10 +18,12 @@ function ViewProfileDoctor() {
   const [specialization, setSpecialization] = useState("");
   const [password, setPassword] = useState("");
   const profilecollector = () => {
+  
     Axios.post("http://localhost:3001/api/fetchDoctorID", {
       Doctor_ID: check_id,
-    });
-    Axios.get("http://localhost:3001/api/fetchDoctorID")
+    })
+    .then(() => {
+      Axios.get("http://localhost:3001/api/fetchDoctorID")
       .then(function (response) {
         setfirstName(response.data.first_name);
         setmiddleName(response.data.middle_name);
@@ -32,8 +35,11 @@ function ViewProfileDoctor() {
       .catch((err) => {
         console.log(err);
       });
+    });
   };
-  if (counter === 0) {
+
+  if (counter === 0) 
+  {
     profilecollector();
     setCounter(1);
   }

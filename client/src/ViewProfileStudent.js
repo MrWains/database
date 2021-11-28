@@ -24,8 +24,9 @@ function ViewProfileStudent() {
   const profilecollector = () => {
     Axios.post("http://localhost:3001/api/fetchStudentID", {
       Student_ID: check_id,
-    });
-    Axios.get("http://localhost:3001/api/fetchStudentID")
+    })
+    .then(() => {
+      Axios.get("http://localhost:3001/api/fetchStudentID")
       .then(function (response) {
         setfirstName(response.data.first_name);
         setmiddleName(response.data.middle_name);
@@ -41,11 +42,15 @@ function ViewProfileStudent() {
       .catch((err) => {
         console.log(err);
       });
+    });
   };
-  if (counter === 0) {
+
+  if (counter === 0) 
+  {
     profilecollector();
     setCounter(1);
   }
+
   return (
     <div className="App">
       <div className="homepage">
