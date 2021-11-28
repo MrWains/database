@@ -14,13 +14,13 @@ function ViewDoctorsList() {
       arr.push(
         <div>
           <h3>Doctor {i + 1}</h3>
-          <label>First Name</label>
+          <label>First Name:</label>
           <div>{list[i].first_name}</div>
-          <label>Middle Name</label>
+          <label>Middle Name:</label>
           <div>{list[i].middle_name}</div>
-          <label>Last Name</label>
+          <label>Last Name:</label>
           <div>{list[i].last_name}</div>
-          <label>Specialization</label>
+          <label>Specialization:</label>
           <div>{list[i].specialization}</div>
         </div>
       );

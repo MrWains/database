@@ -29,6 +29,7 @@ let forReturn = ""; // for fetching student for admin
 let willReturn = ""; // for fetching doctor for admin
 let shouldReturn = ""; // for fetching contact us
 let mustReturn = ""; // for fetching doctor list
+let wouldReturn = ""; // for fetching complaints/suggestions
 
 app.get("/", (req, res) => {
   res.send("Yay!! this works");
@@ -256,7 +257,7 @@ app.post("/api/doctorslist", (req, res) => {
   db.query(sqlFetch, (err, result) => {
     if (err || result.length === 0) {
       toReturn = "Query Failed to Execute!";
-      res.send(mustReturn);
+      res.send(toReturn);
     } else {
       mustReturn = result;
       res.send(mustReturn);
@@ -268,6 +269,27 @@ app.post("/api/doctorslist", (req, res) => {
 app.get("/api/sendDoctorsList", (req, res) => {
   if (mustReturn != "") {
     res.send(mustReturn);
+  }
+});
+
+// Complaints/Suggestions
+app.post("/api/complaintsuggestions", (req, res) => {
+  const sqlFetch = "SELECT title,description,user_id FROM feedback";
+  db.query(sqlFetch, (err, result) => {
+    if (err || result.length === 0) {
+      toReturn = "Query Failed to Execute!";
+      res.send(toReturn);
+    } else {
+      wouldReturn = result;
+      res.send(wouldReturn);
+    }
+  });
+});
+
+// Complaints/Suggestions sender
+app.get("/api/sendComplaintSuggestions", (req, res) => {
+  if (wouldReturn != "") {
+    res.send(wouldReturn);
   }
 });
 
