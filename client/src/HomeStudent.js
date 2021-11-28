@@ -84,10 +84,6 @@ function HomeStudent() {
           <button onClick={fetchEmergency}>Update Emergency Contact</button>
         </NavLink>
 
-        <NavLink className="nav-link" to="/updatemedicalprofile">
-          <button>Update Medical Profile</button>
-        </NavLink>
-
         <NavLink className="nav-link" to="/changepasswordstudent">
           <button>Change Password</button>
         </NavLink>

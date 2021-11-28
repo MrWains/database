@@ -25,7 +25,6 @@ export { default as AddDoctor } from "./AddDoctor";
 export { default as ChangePasswordStudent } from "./ChangePasswordStudent";
 export { default as ComplaintSuggestion } from "./ComplaintSuggestion";
 export { default as UpdateEmergencyContact } from "./UpdateEmergencyContact";
-export { default as UpdateMedicalProfile } from "./UpdateMedicalProfile";
 export { default as ViewContactUs } from "./ViewContactUs";
 export { default as ViewDoctorsList } from "./ViewDoctorsList";
 export { default as ViewProfileStudent } from "./ViewProfileStudent";

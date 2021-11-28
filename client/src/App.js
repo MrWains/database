@@ -14,7 +14,6 @@ import {
   ComplaintSuggestion,
   ViewContactUs,
   UpdateEmergencyContact,
-  UpdateMedicalProfile,
   ViewDoctorsList,
   ViewProfileStudent,
   ChangePasswordStudent,
@@ -47,11 +46,6 @@ const App = () => {
             exact
             path="/updateemergency"
             element={<UpdateEmergencyContact />}
-          />
-          <Route
-            exact
-            path="/updatemedicalprofile"
-            element={<UpdateMedicalProfile />}
           />
           <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
           <Route

@@ -16,7 +16,6 @@ function ViewProfileDoctor() {
   const [middleName, setmiddleName] = useState("");
   const [lastName, setlastName] = useState("");
   const [specialization, setSpecialization] = useState("");
-  const [password, setPassword] = useState("");
   const profilecollector = () => {
   
     Axios.post("http://localhost:3001/api/fetchDoctorID", {
@@ -29,7 +28,6 @@ function ViewProfileDoctor() {
         setmiddleName(response.data.middle_name);
         setlastName(response.data.last_name);
         setworkerID(response.data.idhealthcare_worker);
-        setPassword(response.data.password);
         setSpecialization(response.data.specialization);
       })
       .catch((err) => {
@@ -57,8 +55,7 @@ function ViewProfileDoctor() {
         <div>{lastName}</div>
         <label>Specialization</label>
         <div>{specialization}</div>
-        <label>Password</label>
-        <div>{password}</div>
+        
         <NavLink className="nav-link" to="/homehw">
           <button>Back</button>
         </NavLink>
