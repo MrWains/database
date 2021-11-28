@@ -19,6 +19,10 @@ import {
   ViewProfileStudent,
   ChangePasswordStudent,
   ViewComplaintsSuggestions,
+  EditContactUs,
+  ViewStudentInformation,
+  ViewDoctorInformation,
+  EditPersonalProfile,
 } from ".";
 
 const App = () => {
@@ -64,6 +68,23 @@ const App = () => {
             path="/viewcomplaintssuggestions"
             element={<ViewComplaintsSuggestions />}
           />
+          <Route exact path="/editcontactus" element={<EditContactUs />} />
+          <Route
+            exact
+            path="/viewstudentinformation"
+            element={<ViewStudentInformation />}
+          />
+          <Route
+            exact
+            path="/viewdoctorinformation"
+            element={<ViewDoctorInformation />}
+          />
+          <Route
+            exact
+            path="/editpersonalprofile"
+            element={<EditPersonalProfile />}
+          />
+          <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
         </Routes>
       </MemoryRouter>
     </RecoilRoot>

@@ -30,3 +30,7 @@ export { default as ViewContactUs } from "./ViewContactUs";
 export { default as ViewDoctorsList } from "./ViewDoctorsList";
 export { default as ViewProfileStudent } from "./ViewProfileStudent";
 export { default as ViewComplaintsSuggestions } from "./ViewComplaintsSuggestions";
+export { default as EditContactUs } from "./EditContactUs";
+export { default as ViewStudentInformation } from "./ViewStudentInformation";
+export { default as ViewDoctorInformation } from "./ViewDoctorInformation";
+export { default as EditPersonalProfile } from "./EditPersonalProfile";

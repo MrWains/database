@@ -9,11 +9,11 @@ const mysql = require("mysql");
 const PORT = 3001;
 
 const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database: "localSchema"
-})
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "localSchema",
+});
 
 // heroku setup
 // mysql://ba41ba76295c24:421b299c@eu-cdbr-west-01.cleardb.com/heroku_26c145cc8987357?reconnect=true
@@ -27,7 +27,7 @@ const db = mysql.createPool({
 let toReturn = ""; // for fetching role_id for login
 let forReturn = ""; // for fetching student for admin
 let willReturn = ""; // for fetching doctor for admin
-let shouldReturn = "" // for fetching contact us
+let shouldReturn = ""; // for fetching contact us
 
 app.get("/", (req, res) => {
   res.send("Yay!! this works");
@@ -196,7 +196,7 @@ app.post("/api/fetchDoctorID", (req, res) => {
     "SELECT * FROM healthcare_worker WHERE idhealthcare_worker=?;";
   db.query(sqlFetch, [receivedDoctor_Id], (err, result) => {
     if (err || result.length === 0) {
-      willReturn = "Invalid Student ID Entered!";
+      willReturn = "Invalid Doctor ID Entered!";
       res.send(willReturn);
     } else {
       willReturn = JSON.stringify(result[0]);
@@ -213,20 +213,22 @@ app.get("/api/fetchDoctorID", (req, res) => {
 
 // update student's password
 app.post("/api/updatePassword_student", (req, res) => {
-  
   const receivedCheck_Id = req.body.Check_ID;
-  const receivedNewPassword = req.body.New_Password; 
+  const receivedNewPassword = req.body.New_Password;
 
   const sqlUpdate = "UPDATE login SET password=? WHERE check_id=?;";
-  db.query(sqlUpdate, [receivedNewPassword, receivedCheck_Id], (err, result) => {
-    toReturn = "Update Query Run";
-    res.send(toReturn);
-  });
+  db.query(
+    sqlUpdate,
+    [receivedNewPassword, receivedCheck_Id],
+    (err, result) => {
+      toReturn = "Update Query Run";
+      res.send(toReturn);
+    }
+  );
 });
 
 // contact us
 app.post("/api/contactus", (req, res) => {
-  
   const sqlFetch = "SELECT address, phone_num FROM contact_us";
   db.query(sqlFetch, (err, result) => {
     if (err || result.length === 0) {
@@ -248,28 +250,23 @@ app.get("/api/sendContactUs", (req, res) => {
 
 // add student's complain to feedback
 app.post("/api/addComplaint_student", (req, res) => {
-
   const receivedID = req.body.Complain_ID;
   const receivedTitle = req.body.Complain_Title;
-  const receivedDescription = req.body.Complain_Description; 
-  const receivedUID = req.body.User_ID; 
-
+  const receivedDescription = req.body.Complain_Description;
+  const receivedUID = req.body.User_ID;
 
   // INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);
-  const sqlInsert = "INSERT INTO feedback (idfeedback, title, description, user_id) VALUES (?,?,?,?);";
-  db.query(sqlInsert, [receivedID, receivedTitle, receivedDescription, receivedUID], (err, result) => {
-    toReturn = "Update Query Run";
-    res.send(toReturn);
-  });
-
-
-
-
-
-
+  const sqlInsert =
+    "INSERT INTO feedback (idfeedback, title, description, user_id) VALUES (?,?,?,?);";
+  db.query(
+    sqlInsert,
+    [receivedID, receivedTitle, receivedDescription, receivedUID],
+    (err, result) => {
+      toReturn = "Update Query Run";
+      res.send(toReturn);
+    }
+  );
 });
-
-
 
 // listening on port 3001
 app.listen(process.env.PORT || PORT, () => {
