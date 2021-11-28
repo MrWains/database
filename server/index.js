@@ -74,7 +74,7 @@ app.post("/api/addstudent", (req, res) => {
   const sqlAddAccount = "INSERT INTO login VALUES (?,?,?);";
   db.query(
     sqlAddAccount,
-    [receivedRollNumber, receivedID, receivedPassword],
+    [receivedRollNumber, receivedPassword, receivedID],
     (err, result) => {
       console.log("err", err);
       console.log("DONE", result);
@@ -112,7 +112,7 @@ app.post("/api/adddoctor", (req, res) => {
   const sqlAddAccount = "INSERT INTO login VALUES (?,?,?);";
   db.query(
     sqlAddAccount,
-    [receivedworkerID, receivedID, receivedPassword],
+    [receivedworkerID,  receivedPassword, receivedID],
     (err, result) => {
       console.log("err", err);
       console.log("DONE", result);
