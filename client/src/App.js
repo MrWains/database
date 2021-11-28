@@ -23,6 +23,7 @@ import {
   ViewStudentInformation,
   ViewDoctorInformation,
   EditPersonalProfile,
+  ViewProfileDoctor,
 } from ".";
 
 const App = () => {
@@ -57,6 +58,11 @@ const App = () => {
             exact
             path="/viewprofilestudent"
             element={<ViewProfileStudent />}
+          />
+          <Route
+            exact
+            path="/viewprofiledoctor"
+            element={<ViewProfileDoctor />}
           />
           <Route
             exact
