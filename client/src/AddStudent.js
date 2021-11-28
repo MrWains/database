@@ -37,7 +37,6 @@ function Add_Student() {
       password: password,
     })
       .then(() => {
-        console.log("Student record_added");
         setMover(1);
       })
       .catch((err) => {

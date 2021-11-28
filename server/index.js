@@ -37,8 +37,6 @@ app.get("/", (req, res) => {
   res.send("Yay!! this works");
 });
 
-
-
 app.post("/api/addstudent", (req, res) => {
   const receivedFN = req.body.firstName;
   const receivedMN = req.body.middleName;
@@ -54,7 +52,7 @@ app.post("/api/addstudent", (req, res) => {
 
   // see role_id against check_id to determine table to check
   const sqlInsert =
-    "INSERT INTO student VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ) ;";
+    "INSERT INTO student VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?);";
   db.query(
     sqlInsert,
     [
@@ -67,8 +65,7 @@ app.post("/api/addstudent", (req, res) => {
       receivedcontact,
       receivedemergencyFName,
       receivedemergencyLName,
-      receivedemergency,
-      receivedPassword,
+      receivedemergency
     ],
     (err, result) => {
       res.send("success");
@@ -96,7 +93,7 @@ app.post("/api/adddoctor", (req, res) => {
 
   // see role_id against check_id to determine table to check
   const sqlInsert =
-    "INSERT INTO healthcare_worker VALUES (? , ? , ? , ? , ? , ? ,?) ;";
+    "INSERT INTO healthcare_worker VALUES (? , ? , ? , ? , ? , ?) ;";
   db.query(
     sqlInsert,
     [
@@ -105,8 +102,7 @@ app.post("/api/adddoctor", (req, res) => {
       receivedFN,
       receivedMN,
       receivedLN,
-      receivedspecialization,
-      receivedPassword,
+      receivedspecialization
     ],
     (err, result) => {
       res.send("successfully");
