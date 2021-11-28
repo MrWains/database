@@ -300,13 +300,25 @@ app.post("/api/addComplaint_student", (req, res) => {
   const receivedDescription = req.body.Complain_Description;
   const receivedUID = req.body.User_ID;
 
-  // INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);
   const sqlInsert =
     "INSERT INTO feedback (idfeedback, title, description, user_id) VALUES (?,?,?,?);";
   db.query(
     sqlInsert,
     [receivedID, receivedTitle, receivedDescription, receivedUID],
     (err, result) => {
+      toReturn = "Update Query Run";
+      res.send(toReturn);
+    }
+  );
+});
+
+// update contact us information
+app.post("/api/editcontactus", (req, res) => {
+  const receivedAddress = req.body.Address;
+  const receivedPhone_Num = req.body.Phone_Num;
+
+  const sqlUpdate = "UPDATE contact_us SET address=?, phone_num=? WHERE contact_id=1;";
+  db.query(sqlUpdate, [receivedAddress, receivedPhone_Num], (err, result) => {
       toReturn = "Update Query Run";
       res.send(toReturn);
     }

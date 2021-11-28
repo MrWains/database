@@ -3,12 +3,42 @@ import Axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+
+import addressAtom from "./atoms/address";
+import phoneNumAtom from "./atoms/phoneNum";
 
 function Home() {
   // state variables
   const [student_id, setStudent_id] = useState("");
   const [doctor_id, setDoctor_id] = useState("");
   const [mover, setMover] = useState(0);
+
+  const [address, setAddress] = useRecoilState(addressAtom);
+  const [phone_num, setPhone_Num] = useRecoilState(phoneNumAtom);
+
+  // listen to the response of fetch query and set aomic states accordingly to be passed
+  const updateContact = () => {
+    Axios.get("http://localhost:3001/api/sendContactUs").then(function (
+      response
+    ) {
+      // set global states for printing
+      setAddress(response.data.address);
+      setPhone_Num(response.data.phone_num);
+    });
+  };
+
+  // makes call to backend to execute fetch query
+  const fetchContactUs = () => {
+    // send fetch query
+    Axios.post("http://localhost:3001/api/contactus")
+      .then(() => {
+        updateContact();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const displayFetchedStudent = () => {
     // Axios.get("https://healthatlums-database.herokuapp.com/api/fetchStudentID")
@@ -77,19 +107,15 @@ function Home() {
       ) : (
         <div className="App">
           <div className="homepage">
+            
             <h2>Admin Home Page</h2>
+            
             <NavLink className="nav-link" to="/addstudent">
               <button>Add a student</button>
             </NavLink>
 
             <NavLink className="nav-link" to="/adddoctor">
               <button>Add a doctor</button>
-            </NavLink>
-            <NavLink className="nav-link" to="/editcontactus">
-              <button>Edit Contact Us</button>
-            </NavLink>
-            <NavLink className="nav-link" to="/viewcomplaintssuggestions">
-              <button>View Complaints/Suggestions</button>
             </NavLink>
 
             <div className="homepage_search">
@@ -101,7 +127,6 @@ function Home() {
                   setStudent_id(e.target.value);
                 }}
               />
-
               <button onClick={fetchStudentID}>View Information</button>
             </div>
 
@@ -114,9 +139,16 @@ function Home() {
                   setDoctor_id(e.target.value);
                 }}
               />
-
               <button onClick={fetchDoctorID}>View Information</button>
             </div>
+
+            <NavLink className="nav-link" to="/editcontactus">
+              <button onClick={fetchContactUs}>Edit Contact Us</button>
+            </NavLink>
+            
+            <NavLink className="nav-link" to="/viewcomplaintssuggestions">
+              <button>View Complaints/Suggestions</button>
+            </NavLink>
 
             <NavLink className="nav-link" to="/">
               <button>LogOut</button>

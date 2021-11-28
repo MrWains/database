@@ -11,7 +11,7 @@ function HomeStudent() {
   const [address, setAddress] = useRecoilState(addressAtom);
   const [phone_num, setPhone_Num] = useRecoilState(phoneNumAtom);
 
-  // listen to the response of fetch query and set aomic states accordingly to be passes
+  // listen to the response of fetch query and set aomic states accordingly to be passed
   const updateContact = () => {
     Axios.get("http://localhost:3001/api/sendContactUs").then(function (
       response
