@@ -59,7 +59,7 @@ function ViewProfileDoctor() {
         <div>{specialization}</div>
         <label>Password</label>
         <div>{password}</div>
-        <NavLink className="nav-link" to="/home">
+        <NavLink className="nav-link" to="/homehw">
           <button>Back</button>
         </NavLink>
       </div>

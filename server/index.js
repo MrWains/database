@@ -71,8 +71,6 @@ app.post("/api/addstudent", (req, res) => {
       receivedPassword,
     ],
     (err, result) => {
-      console.log("err", err);
-      console.log("DONE", result);
       res.send("success");
     }
   );
@@ -111,8 +109,6 @@ app.post("/api/adddoctor", (req, res) => {
       receivedPassword,
     ],
     (err, result) => {
-      console.log("err", err);
-      console.log("DONE", result);
       res.send("successfully");
     }
   );
@@ -137,7 +133,6 @@ app.post("/api/checkRole_id", (req, res) => {
   const sqlFetch = "SELECT role_id FROM login WHERE check_id=? AND password=?;";
   db.query(sqlFetch, [receivedCheck_Id, receivedPassword], (err, result) => {
     if (err || result.length === 0) {
-      console.log(err);
       toReturn = "Invalid Login Information";
       res.send(toReturn);
     } else {
@@ -157,7 +152,6 @@ app.post("/api/checkRole_id", (req, res) => {
   const sqlFetch = "SELECT role_id FROM login WHERE check_id=? AND password=?;";
   db.query(sqlFetch, [receivedCheck_Id, receivedPassword], (err, result) => {
     if (err || result.length === 0) {
-      // console.log(err)
       toReturn = "Invalid Login Information";
       res.send(toReturn);
     } else {
@@ -364,6 +358,23 @@ app.post("/api/updateemergency", (req, res) => {
 
   const sqlUpdate = "UPDATE student SET emergency_contact_first_name=?, emergency_contact_last_name=?, emergency_contact_number=? WHERE idstudent=?;";
   db.query(sqlUpdate, [receivedFirstName, receivedLastName, receivedContact_Num, receivedStudent_Id], (err, result) => {
+      toReturn = "Update Query Run";
+      res.send(toReturn);
+    }
+  );
+});
+
+// update doctor's profile information
+app.post("/api/updatedoctorprofile", (req, res) => {
+  const receivedFirstName = req.body.firstName;
+  const receivedMiddleName = req.body.middleName;
+  const receivedLastName = req.body.lastName;
+  const receivedspecialization = req.body.specialziation;
+  const receivedHW_ID = req.body.Check_ID;
+
+  console.log("hereeee: ", receivedFirstName, receivedMiddleName, receivedLastName, receivedspecialization, receivedHW_ID);
+  
+  db.query(sqlUpdate, [receivedFirstName, receivedMiddleName, receivedLastName, receivedspecialization, receivedHW_ID], (err, result) => {
       toReturn = "Update Query Run";
       res.send(toReturn);
     }

@@ -6,14 +6,21 @@ import { useRecoilState } from "recoil";
 import addressAtom from "./atoms/address";
 import phoneNumAtom from "./atoms/phoneNum";
 import checkIDAtom from "./atoms/checkID";
-
+import firstNameDoctorAtom from "./atoms/firstNameDoctor"
+import middleNameDoctorAtom from "./atoms/middleNameDoctor"
+import lastNameDoctorAtom from "./atoms/lastNameDoctor"
+import specializationDoctorAtom from "./atoms/specializationDoctor"
 
 function HomeStudent() {
   // state variables
   const [check_id, setCheck_id] = useRecoilState(checkIDAtom);
   const [address, setAddress] = useRecoilState(addressAtom);
   const [phone_num, setPhone_Num] = useRecoilState(phoneNumAtom);
-
+  const [firstNameDoctor, setFirstNameDoctor] = useRecoilState(firstNameDoctorAtom);
+  const [middleNameDoctor, setMiddleNameDoctor] = useRecoilState(middleNameDoctorAtom);
+  const [lastNameDoctor, setLastNameDoctor] = useRecoilState(lastNameDoctorAtom);
+  const [specializationDoctor, setSpecializationDoctor] = useRecoilState(specializationDoctorAtom);
+  
   // listen to the response of fetch query and set aomic states accordingly to be passed
   const updateContact = () => {
     Axios.get("http://localhost:3001/api/sendContactUs").then(function (
@@ -37,6 +44,24 @@ function HomeStudent() {
       });
   };
 
+  const profilecollector = () => {
+    Axios.post("http://localhost:3001/api/fetchDoctorID", {
+      Doctor_ID: check_id,
+    })
+    .then(() => {
+      Axios.get("http://localhost:3001/api/fetchDoctorID")
+      .then(function (response) {
+        setFirstNameDoctor(response.data.first_name);
+        setMiddleNameDoctor(response.data.middle_name);
+        setLastNameDoctor(response.data.last_name);
+        setSpecializationDoctor(response.data.specialization);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    });
+  };
+
   return (
     <div className="App">
       <div className="student_homepage">
@@ -44,6 +69,10 @@ function HomeStudent() {
 
         <NavLink className="nav-link" to="/viewprofiledoctor">
           <button>View Personal Profile</button>
+        </NavLink>
+
+        <NavLink className="nav-link" to="/editpersonalprofile">
+          <button onClick={profilecollector}>Edit Profile</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">
