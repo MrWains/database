@@ -16,7 +16,6 @@ function ViewStudentInformation() {
   const [emergencyFName, setEmergencyFName] = useState("");
   const [emergencyLName, setEmergencyLName] = useState("");
   const [rollNumber, setrollNumber] = useState(null);
-  const [password, setPassword] = useState("");
 
   const infocollector = () => {
     Axios.get("http://localhost:3001/api/fetchStudentID")
@@ -30,7 +29,6 @@ function ViewStudentInformation() {
         setEmergencyFName(response.data.emergency_contact_first_name);
         setEmergencyLName(response.data.emergency_contact_last_name);
         setrollNumber(response.data.idstudent);
-        setPassword(response.data.password);
       })
       .catch((err) => {
         console.log(err);
@@ -63,8 +61,6 @@ function ViewStudentInformation() {
         <div>{emergencyLName}</div>
         <label>Emergency Contact Number</label>
         <div>{emergency}</div>
-        <label>Password </label>
-        <div>{password}</div>
 
         <NavLink className="nav-link" to="/home">
           <button>Back</button>
