@@ -12,18 +12,25 @@ function ViewDoctorInformation() {
   const [lastName, setlastName] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [password, setPassword] = useState("");
-  Axios.get("http://localhost:3001/api/fetchDoctorID")
-    .then(function (response) {
-      setfirstName(response.data.first_name);
-      setmiddleName(response.data.middle_name);
-      setlastName(response.data.last_name);
-      setworkerID(response.data.idhealthcare_worker);
-      setPassword(response.data.password);
-      setSpecialization(response.data.specialization);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const [counter, setCounter] = useState(0);
+  const infocollector = () => {
+    Axios.get("http://localhost:3001/api/fetchDoctorID")
+      .then(function (response) {
+        setfirstName(response.data.first_name);
+        setmiddleName(response.data.middle_name);
+        setlastName(response.data.last_name);
+        setworkerID(response.data.idhealthcare_worker);
+        setPassword(response.data.password);
+        setSpecialization(response.data.specialization);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  if (counter === 0) {
+    infocollector();
+    setCounter(1);
+  }
   return (
     <div className="App">
       <div className="homepage">

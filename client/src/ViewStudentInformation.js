@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 
 function ViewStudentInformation() {
   // state variables
+  const [counter, setCounter] = useState(0);
   const [firstName, setfirstName] = useState("");
   const [middleName, setmiddleName] = useState("");
   const [lastName, setlastName] = useState("");
@@ -16,22 +17,29 @@ function ViewStudentInformation() {
   const [emergencyLName, setEmergencyLName] = useState("");
   const [rollNumber, setrollNumber] = useState(null);
   const [password, setPassword] = useState("");
-  Axios.get("http://localhost:3001/api/fetchStudentID")
-    .then(function (response) {
-      setfirstName(response.data.first_name);
-      setmiddleName(response.data.middle_name);
-      setlastName(response.data.last_name);
-      setBatch(response.data.batch);
-      setcontactNumber(response.data.contact_number);
-      setEmergency(response.data.contact_number);
-      setEmergencyFName(response.data.emergency_contact_first_name);
-      setEmergencyLName(response.data.emergency_contact_last_name);
-      setrollNumber(response.data.idstudent);
-      setPassword(response.data.password);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+  const infocollector = () => {
+    Axios.get("http://localhost:3001/api/fetchStudentID")
+      .then(function (response) {
+        setfirstName(response.data.first_name);
+        setmiddleName(response.data.middle_name);
+        setlastName(response.data.last_name);
+        setBatch(response.data.batch);
+        setcontactNumber(response.data.contact_number);
+        setEmergency(response.data.contact_number);
+        setEmergencyFName(response.data.emergency_contact_first_name);
+        setEmergencyLName(response.data.emergency_contact_last_name);
+        setrollNumber(response.data.idstudent);
+        setPassword(response.data.password);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  if (counter === 0) {
+    infocollector();
+    setCounter(1);
+  }
 
   return (
     <div className="App">

@@ -8,6 +8,7 @@ import checkIDAtom from "./atoms/checkID";
 
 function ViewProfileDoctor() {
   // state variables
+  const [counter, setCounter] = useState(0);
   const [check_id] = useRecoilState(checkIDAtom);
   const [workerID, setworkerID] = useState("");
   const [firstName, setfirstName] = useState("");
@@ -15,21 +16,27 @@ function ViewProfileDoctor() {
   const [lastName, setlastName] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [password, setPassword] = useState("");
-  Axios.post("http://localhost:3001/api/fetchDoctorID", {
-    Doctor_ID: check_id,
-  });
-  Axios.get("http://localhost:3001/api/fetchDoctorID")
-    .then(function (response) {
-      setfirstName(response.data.first_name);
-      setmiddleName(response.data.middle_name);
-      setlastName(response.data.last_name);
-      setworkerID(response.data.idhealthcare_worker);
-      setPassword(response.data.password);
-      setSpecialization(response.data.specialization);
-    })
-    .catch((err) => {
-      console.log(err);
+  const profilecollector = () => {
+    Axios.post("http://localhost:3001/api/fetchDoctorID", {
+      Doctor_ID: check_id,
     });
+    Axios.get("http://localhost:3001/api/fetchDoctorID")
+      .then(function (response) {
+        setfirstName(response.data.first_name);
+        setmiddleName(response.data.middle_name);
+        setlastName(response.data.last_name);
+        setworkerID(response.data.idhealthcare_worker);
+        setPassword(response.data.password);
+        setSpecialization(response.data.specialization);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  if (counter === 0) {
+    profilecollector();
+    setCounter(1);
+  }
   return (
     <div className="App">
       <div className="homepage">
