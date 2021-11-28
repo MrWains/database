@@ -85,6 +85,13 @@ function Home() {
             <NavLink className="nav-link" to="/adddoctor">
               <button>Add a doctor</button>
             </NavLink>
+            <NavLink className="nav-link" to="/editcontactus">
+              <button>Edit Contact Us</button>
+            </NavLink>
+            <NavLink className="nav-link" to="/viewcomplaintssuggestions">
+              <button>View Complaints/Suggestions</button>
+            </NavLink>
+
             <div className="homepage_search">
               <label>Student ID</label>
               <input

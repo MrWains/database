@@ -28,6 +28,7 @@ let toReturn = ""; // for fetching role_id for login
 let forReturn = ""; // for fetching student for admin
 let willReturn = ""; // for fetching doctor for admin
 let shouldReturn = ""; // for fetching contact us
+let mustReturn = ""; // for fetching doctor list
 
 app.get("/", (req, res) => {
   res.send("Yay!! this works");
@@ -245,6 +246,28 @@ app.post("/api/contactus", (req, res) => {
 app.get("/api/sendContactUs", (req, res) => {
   if (shouldReturn != "") {
     res.send(shouldReturn);
+  }
+});
+
+// doctor list
+app.post("/api/doctorslist", (req, res) => {
+  const sqlFetch =
+    "SELECT first_name,middle_name,last_name,specialization FROM healthcare_worker";
+  db.query(sqlFetch, (err, result) => {
+    if (err || result.length === 0) {
+      toReturn = "Query Failed to Execute!";
+      res.send(mustReturn);
+    } else {
+      mustReturn = result;
+      res.send(mustReturn);
+    }
+  });
+});
+
+// doctor list sender
+app.get("/api/sendDoctorsList", (req, res) => {
+  if (mustReturn != "") {
+    res.send(mustReturn);
   }
 });
 
