@@ -4,6 +4,7 @@ import Axios from "axios";
 import "./App.css";
 import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
+
 import checkIDAtom from "./atoms/checkID";
 
 function ViewProfileStudent() {
@@ -33,7 +34,7 @@ function ViewProfileStudent() {
         setlastName(response.data.last_name);
         setBatch(response.data.batch);
         setcontactNumber(response.data.contact_number);
-        setEmergency(response.data.contact_number);
+        setEmergency(response.data.emergency_contact_number);
         setEmergencyFName(response.data.emergency_contact_first_name);
         setEmergencyLName(response.data.emergency_contact_last_name);
         setrollNumber(response.data.idstudent);

@@ -30,10 +30,14 @@ let willReturn = ""; // for fetching doctor for admin
 let shouldReturn = ""; // for fetching contact us
 let mustReturn = ""; // for fetching doctor list
 let wouldReturn = ""; // for fetching complaints/suggestions
+let mayReturn = ""; // for fetching emergency contact's information
 
+// server status checker
 app.get("/", (req, res) => {
   res.send("Yay!! this works");
 });
+
+
 
 app.post("/api/addstudent", (req, res) => {
   const receivedFN = req.body.firstName;
@@ -124,6 +128,7 @@ app.post("/api/adddoctor", (req, res) => {
   );
 });
 
+// Login Handler
 app.post("/api/checkRole_id", (req, res) => {
   const receivedCheck_Id = req.body.Check_ID;
   const receivedPassword = req.body.Password;
@@ -143,6 +148,7 @@ app.post("/api/checkRole_id", (req, res) => {
   });
 });
 
+// Login sender
 app.post("/api/checkRole_id", (req, res) => {
   const receivedCheck_Id = req.body.Check_ID;
   const receivedPassword = req.body.Password;
@@ -324,6 +330,47 @@ app.post("/api/editcontactus", (req, res) => {
     }
   );
 });
+
+// fetch emergency contact information
+app.post("/api/fetchemergency", (req, res) => {
+  const receivedStudentID = req.body.Check_ID;
+
+  const sqlFetch = "SELECT emergency_contact_first_name, emergency_contact_last_name, emergency_contact_number FROM student WHERE idstudent=?;"
+  db.query(sqlFetch, [receivedStudentID], (err, result) => {
+
+    if (err || result.length === 0) {
+      mayReturn = "Query Failed to Execute!";
+      res.send(mayReturn);
+    } else {
+      mayReturn = JSON.stringify(result[0]);
+      res.send(mayReturn);
+    }
+  });
+});
+
+//emergency contact information sender
+app.get("/api/sendemergency", (req, res) => {
+  if (mayReturn != "") {
+    res.send(mayReturn);
+  }
+});
+
+// update emergency contact information
+app.post("/api/updateemergency", (req, res) => {
+  const receivedFirstName = req.body.First_Name;
+  const receivedLastName = req.body.Last_Name;
+  const receivedContact_Num = req.body.Contact_Num;
+  const receivedStudent_Id = req.body.Student_ID;
+
+  const sqlUpdate = "UPDATE student SET emergency_contact_first_name=?, emergency_contact_last_name=?, emergency_contact_number=? WHERE idstudent=?;";
+  db.query(sqlUpdate, [receivedFirstName, receivedLastName, receivedContact_Num, receivedStudent_Id], (err, result) => {
+      toReturn = "Update Query Run";
+      res.send(toReturn);
+    }
+  );
+});
+
+
 
 // listening on port 3001
 app.listen(process.env.PORT || PORT, () => {
