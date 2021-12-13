@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-.login{
+.login {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,25 +12,52 @@
   align-items: center;
 }
 
-.login input{
+.button-line {
+  width: 300px;
+  height: 50px;
+  margin-top: 15px;
+  border-radius: 20px;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #86b1f0;
+  color: aliceblue;
+  align-items: center;
+  margin-top: 40px;
+  border-radius: 25px;
+  padding: 50px;
+}
+.login .h2 {
+  color: black;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login input {
   width: 300px;
   height: 50px;
   font-size: 20px;
   padding-left: 10px;
   margin: 5px;
+  border-radius: 20px;
 }
 
-.login button{
+.login button {
   width: 300px;
   height: 50px;
   margin-top: 15px;
+  border-radius: 20px;
 }
 
-.login button:hover{
+.login button:hover {
   cursor: pointer;
 }
 
-.homepage{
+.homepage {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -38,25 +65,27 @@
   align-items: center;
 }
 
-.homepage input{
+.homepage input {
   width: 300px;
   height: 50px;
   font-size: 20px;
   padding-left: 10px;
   margin: 5px;
+  border-radius: 20px;
 }
 
-.homepage button{  
+.homepage button {
   width: 300px;
   height: 50px;
   margin-top: 15px;
+  border-radius: 20px;
 }
 
-.homepage button:hover{
+.homepage button:hover {
   cursor: pointer;
 }
 
-.homepage_search{
+.homepage_search {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -64,7 +93,7 @@
   align-items: center;
 }
 
-.homepage_search input{
+.homepage_search input {
   width: 300px;
   height: 50px;
   font-size: 20px;
@@ -72,12 +101,12 @@
   margin: 15px;
 }
 
-.homepage_search button{  
+.homepage_search button {
   width: 300px;
   height: 50px;
   margin: 15px;
 }
 
-.homepage_search button:hover{
+.homepage_search button:hover {
   cursor: pointer;
 }
