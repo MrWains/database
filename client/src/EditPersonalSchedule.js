@@ -44,10 +44,11 @@ function EditPersonalSchedule() {
     <div className="App">
       <div className="topbar"> Health@LUMS</div>
       <div className="homepage">
+      <div className = "container">
         <h2>Update Doctor Schedule</h2>
-        <div className = "container">
         
-        <label>EntryID (e.g: monday)</label>
+        
+        <label>EntryID</label>
         <input
               type="text"
               name="entryID"

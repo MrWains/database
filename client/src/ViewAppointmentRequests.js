@@ -78,6 +78,7 @@ function ViewAppointmentRequests() {
     <div className="App">
       <div className="topbar"> Health@LUMS</div>
       <div className="homepage">
+        <div className="container">
         <h2>Appointment Requests</h2>
 
         <div>{array}</div>
@@ -91,6 +92,7 @@ function ViewAppointmentRequests() {
             <button>Back</button>
           </NavLink>
         ):(<h2 Illegal Role_ID />) }
+      </div>
       </div>
     </div>
   );

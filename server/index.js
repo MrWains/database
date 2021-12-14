@@ -12,7 +12,8 @@ const db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "localSchema",
+  // database: "localSchema",
+  database: "dummyData",
 });
 
 // heroku setup

@@ -43,7 +43,7 @@ function ViewDoctorsSchedule() {
   const fetchDoctorsSchedule = () => {
     // send fetch query
     Axios.post("http://localhost:3001/api/doctorSchedule")
-      .then(() => {
+    .then(() => {
         updateDoctorsSchedule();
       })
       .catch((err) => {
