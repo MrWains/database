@@ -12,7 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Setup
 First ensure that you run a MySQL server on your computer and that NodeJS is installed. 
 
-In the project directory, navigate to the '/client' folder. Here you can run:
+In the project directory, navigate to the `/client` folder. Here you can run:
 
 ### `npm start`
 Runs the app in the development mode.\
@@ -21,7 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-To run the project locally import the '.sql' file into a local SQL tool like mySQL Workbench. Then navigate to the '/server' folder in the project directory. Here you can run:
+To run the project locally import the `.sql` file into a local SQL tool like mySQL Workbench. Then navigate to the `/server` folder in the project directory. Here you can run:
 
 ### `Node Index.js`
 Runs the server side of the project. 
