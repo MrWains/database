@@ -3,12 +3,15 @@ import { useState } from "react";
 import Axios from "axios";
 import "./App.css";
 import { NavLink } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import roleIDAtom from "./atoms/roleID";
 
 
 function ViewDoctorsSchedule() {
   // listen to the response of fetch query and set aomic states accordingly to be passes
   const [array, setArray] = useState("");
   const [counter, setCounter] = useState(0);
+  const [role_id, setRole_id] = useRecoilState(roleIDAtom);
 
   const listmaker = (list) => {
     const arr = [];
@@ -56,9 +59,16 @@ function ViewDoctorsSchedule() {
       <div className="homepage">
         <h2>Doctor Schedule</h2>
         <div>{array}</div>
-        <NavLink className="nav-link" to="/homestudent">
-          <button>Back</button>
-        </NavLink>
+
+        {role_id === 2 ? (
+          <NavLink className="nav-link" to="/homestudent">
+            <button>Back</button>
+          </NavLink>
+        ):role_id === 3 ? (
+          <NavLink className="nav-link" to="/homehw">
+            <button>Back</button>
+          </NavLink>
+        ):(<h2 Illegal Role_ID />) }
       </div>
     </div>
   );

@@ -10,6 +10,11 @@ import firstNameDoctorAtom from "./atoms/firstNameDoctor"
 import middleNameDoctorAtom from "./atoms/middleNameDoctor"
 import lastNameDoctorAtom from "./atoms/lastNameDoctor"
 import specializationDoctorAtom from "./atoms/specializationDoctor"
+import daysDoctorAtom from "./atoms/daysDoctor"
+import starthourDoctorAtom from "./atoms/starthourDoctor"
+import startminuteDoctorAtom from "./atoms/startminuteDoctor"
+import endhourDoctorAtom from "./atoms/endhourDoctor"
+import endminuteDoctorAtom from "./atoms/endminuteDoctor"
 
 function HomeStudent() {
   // state variables
@@ -20,6 +25,11 @@ function HomeStudent() {
   const [middleNameDoctor, setMiddleNameDoctor] = useRecoilState(middleNameDoctorAtom);
   const [lastNameDoctor, setLastNameDoctor] = useRecoilState(lastNameDoctorAtom);
   const [specializationDoctor, setSpecializationDoctor] = useRecoilState(specializationDoctorAtom);
+  const [daysDoctor, setdaysDoctor] = useRecoilState(daysDoctorAtom);
+  const [starthourDoctor, setstarthourDoctor] = useRecoilState(starthourDoctorAtom);
+  const [startminuteDoctor, setstartminuteDoctor] = useRecoilState(startminuteDoctorAtom);
+  const [endhourDoctor, setendhourDoctor] = useRecoilState(endhourDoctorAtom);
+  const [endminuteDoctor, setendminuteDoctor] = useRecoilState(endminuteDoctorAtom);
   
   // listen to the response of fetch query and set aomic states accordingly to be passed
   const updateContact = () => {
@@ -65,6 +75,29 @@ function HomeStudent() {
     });
   };
 
+  const schedulecollector = () => {
+    Axios.post("http://localhost:3001/api/fetchDoctorSchedule", {
+      Doctor_ID: check_id,
+    })
+    .then(() => {
+      Axios.get("http://localhost:3001/api/fetchDoctorSchedule")
+      .then(function (response) {
+
+        console.log(response.data);
+
+        setdaysDoctor(response.data.days);
+        setstarthourDoctor(response.data.start_hour);
+        setstartminuteDoctor(response.data.start_minute);
+        setendhourDoctor(response.data.end_hour);
+        setendminuteDoctor(response.data.end_minute);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    });
+  };
+
+
   return (
     <div>
     <div className="App">
@@ -81,6 +114,10 @@ function HomeStudent() {
 
         <NavLink className="nav-link" to="/viewdoctorsschedule">
           <button>View Doctor Schedule</button>
+        </NavLink>
+
+        <NavLink className="nav-link" to="/editpersonalschedule">
+          <button onClick={schedulecollector}>Edit Schedule</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">

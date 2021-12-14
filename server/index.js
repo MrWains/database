@@ -190,7 +190,7 @@ app.get("/api/fetchStudentID", (req, res) => {
 app.post("/api/fetchDoctorID", (req, res) => {
   const receivedDoctor_Id = req.body.Doctor_ID;
 
-  // fetch student against the given ID
+  // fetch doctor against the given ID
   const sqlFetch =
     "SELECT * FROM healthcare_worker WHERE idhealthcare_worker=?;";
   db.query(sqlFetch, [receivedDoctor_Id], (err, result) => {
@@ -401,6 +401,47 @@ app.get("/api/sendDoctorSchedule", (req, res) => {
   }
 });
 
+// fetch doctor schedule against the given ID
+app.post("/api/fetchDoctorSchedule", (req, res) => {
+  const receivedDoctor_Id = req.body.Doctor_ID;
+
+  const sqlFetch =
+    "SELECT * FROM doctors_schedule WHERE hid=?;";
+  db.query(sqlFetch, [receivedDoctor_Id], (err, result) => {
+    if (err || result.length === 0) {
+      willReturn = "Invalid Doctor ID Entered!";
+      res.send(willReturn);
+    } else {
+      willReturn = JSON.stringify(result[0]);
+      res.send(willReturn);
+    }
+  });
+});
+
+app.get("/api/fetchDoctorSchedule", (req, res) => {
+  if (willReturn != "") {
+    res.send(willReturn);
+  }
+});
+
+// update doctor's schedule information
+app.post("/api/updatedoctorschedule", (req, res) => {
+  const receivedDays = req.body.days;
+  const receivedStartHour = req.body.startHour;
+  const receivedStartMinute = req.body.startMinute;
+  const receivedEndHour = req.body.endHour;
+  const receivedEndMinute = req.body.endMinute;
+  const receivedHW_ID = req.body.Check_ID;
+
+  console.log("hereeee: ", receivedDays, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID);
+
+  const sqlUpdate = "UPDATE doctors_schedule SET days=?, start_hour=?, start_minute=?, end_hour=?, end_minute=? WHERE hid=?;";
+  db.query(sqlUpdate, [receivedDays, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID], (err, result) => {
+      toReturn = "Update Query Run";
+      res.send(toReturn);
+    }
+  );
+});
 
 // listening on port 3001
 app.listen(process.env.PORT || PORT, () => {
