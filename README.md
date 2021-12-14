@@ -26,6 +26,14 @@ To run the project locally import the `.sql` file into a local SQL tool like myS
 ### `Node Index.js`
 Runs the server side of the project. 
 
+## Project Structure
+
+The project is split in two parts : the root directory which is opened on the server side and the client directory which is opened on the client side.
+
+Files opened on server side offer a PROMISE API `Axios` which communicates with the mySQL server : this PROMISE API offers basic CRUD (Create/Read/Update/Delete) services.
+
+Files opened on client side offer an interface in order for the user to launch actions on the database or just in order to see the management system.
+
 ## Learn More
 
 ### `npm test`
