@@ -25,7 +25,8 @@ import {
   ViewProfileDoctor,
   ViewSchedule,
   ViewDoctorsSchedule,
-  EditPersonalSchedule
+  EditPersonalSchedule,
+  ScheduleAppointment
 } from ".";
 
 const App = () => {
@@ -45,32 +46,17 @@ const App = () => {
           <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
           <Route exact path="/viewprofilestudent" element={<ViewProfileStudent />} />
           <Route exact path="/viewprofiledoctor" element={<ViewProfileDoctor />} />
-          <Route
-            exact
-            path="/changepasswordstudent"
-            element={<ChangePasswordStudent />}
-          />
-          <Route
-            exact
-            path="/viewcomplaintssuggestions"
-            element={<ViewComplaintsSuggestions />}
-          />
+          <Route exact path="/changepasswordstudent" element={<ChangePasswordStudent />} />
+          <Route exact path="/viewcomplaintssuggestions" element={<ViewComplaintsSuggestions />} />
           <Route exact path="/editcontactus" element={<EditContactUs />} />
-          <Route
-            exact
-            path="/viewstudentinformation"
-            element={<ViewStudentInformation />}
-          />
-          <Route
-            exact
-            path="/viewdoctorinformation"
-            element={<ViewDoctorInformation />}
-          />
+          <Route exact path="/viewstudentinformation" element={<ViewStudentInformation />} />
+          <Route exact path="/viewdoctorinformation" element={<ViewDoctorInformation />} />
           <Route exact path="/editpersonalprofile" element={<EditPersonalProfile />} />
           <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
           <Route exact path="/viewschedule" element={<ViewSchedule />} />
           <Route exact path="/viewdoctorsschedule" element={<ViewDoctorsSchedule />} />
           <Route exact path="/editpersonalschedule" element={<EditPersonalSchedule />} />
+          <Route exact path="/scheduleappointment" element={<ScheduleAppointment />} />
         </Routes>
       </MemoryRouter>
     </RecoilRoot>

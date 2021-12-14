@@ -443,6 +443,28 @@ app.post("/api/updatedoctorschedule", (req, res) => {
   );
 });
 
+// add student appointment request
+app.post("/api/scheduleAppointment", (req, res) => {
+  const receivedHID = req.body.H_ID;
+  const receivedSID = req.body.S_ID;
+  const receivedDay = req.body.day;
+  const receivedStartHour = req.body.startHour;
+  const receivedStartMinute = req.body.startMinute;
+  const receivedSlotStatus = req.body.slotStatus;
+  //const receivedUID = req.body.User_ID;
+
+  const sqlInsert =
+    "INSERT INTO appointment (h_ID, s_ID, day, start_hour, start_minute, slot_status) VALUES (?,?,?,?,?,?);";
+  db.query(
+    sqlInsert,
+    [receivedHID, receivedSID, receivedDay, receivedStartHour, receivedStartMinute, receivedSlotStatus],
+    (err, result) => {
+      toReturn = "Update Query Run";
+      res.send(toReturn);
+    }
+  );
+});
+
 // listening on port 3001
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Running on port ${PORT}`);

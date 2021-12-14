@@ -61,9 +61,16 @@ function ViewDoctorsSchedule() {
         <div>{array}</div>
 
         {role_id === 2 ? (
+        <NavLink className="nav-link" to="/scheduleappointment">
+          <button>Schedule Appointment</button>
+        </NavLink>
+        ):(<h2 Illegal Role_ID />) }
+
+        {role_id === 2 ? (
           <NavLink className="nav-link" to="/homestudent">
             <button>Back</button>
           </NavLink>
+
         ):role_id === 3 ? (
           <NavLink className="nav-link" to="/homehw">
             <button>Back</button>
