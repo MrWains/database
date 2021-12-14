@@ -117,31 +117,31 @@ function HomeStudent() {
         </NavLink>
 
         <NavLink className="nav-link" to="/viewdoctorsschedule">
-          <button>View Doctor Schedule</button>
+          <button className = "button-left">View Doctor Schedule</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/editpersonalschedule">
-          <button onClick={schedulecollector}>Edit Schedule</button>
+          <button className = "button-right" onClick={schedulecollector}>Edit Schedule</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/viewappointmentrequests">
-          <button>View Appointment Requests</button>
+          <button className = "button-left">View Appointment Requests</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">
-          <button className = "button-left" >Change Password</button>
+          <button className = "button-right" >Change Password</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/viewcontactus">
-          <button className = "button-right" onClick={fetchContactUs}>View Contact Us</button>
+          <button className = "button-left" onClick={fetchContactUs}>View Contact Us</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/complaintsuggestion">
-          <button className = "button-left">Add Complaint/Suggestions</button>
+          <button className = "button-right">Add Complaint/Suggestions</button>
         </NavLink>
         
         <NavLink className="nav-link" to="/">
-          <button className = "button-right" >LogOut</button>
+          <button className = "button-left" >LogOut</button>
         </NavLink>
         </div>
       </div>

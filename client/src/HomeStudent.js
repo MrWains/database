@@ -84,27 +84,27 @@ function HomeStudent() {
         </NavLink>
 
         <NavLink className="nav-link" to="/viewdoctorsschedule">
-          <button>View Doctors Schedule</button>
+          <button className = "button-left">View Doctors Schedule</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/updateemergency">
-          <button className = "button-left" onClick={fetchEmergency} >Update Emergency Contact</button>
+          <button className = "button-right" onClick={fetchEmergency} >Update Emergency Contact</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">
-          <button className = "button-right">Change Password</button>
+          <button className = "button-left">Change Password</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/complaintsuggestion">
-          <button className = "button-left" >Add Complaint/Suggestion</button>
+          <button className = "button-right" >Add Complaint/Suggestion</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/viewcontactus">
-          <button  className = "button-right" onClick={fetchContactUs}>View Contact Us</button>
+          <button  className = "button-left" onClick={fetchContactUs}>View Contact Us</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/">
-          <button className = "button-left" >LogOut</button>
+          <button className = "button-right" >LogOut</button>
         </NavLink>
       </div>
       </div>
