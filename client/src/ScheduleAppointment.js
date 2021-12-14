@@ -81,7 +81,7 @@ function ScheduleAppointment() {
           />
 
 
-          <NavLink className="nav-link" to="/scheduleappointment">
+          <NavLink className="nav-link" to="/homestudent">
             <button onClick={scheduleAppointment}>Submit</button>
           </NavLink>
 

@@ -24,8 +24,12 @@ function ViewAppointmentRequests() {
           <div>Student ID: {list[i].s_ID}</div>
           <div>Day: {list[i].day}</div>
           <div>Requested Time: {list[i].start_hour}:{list[i].start_minute}</div>
+          <div>
+          <NavLink className="nav-link" to="/homehw">
+            <button onClick={approveRequest}>Approve Request</button>
+          </NavLink>
+          </div>
         </div>
-        
       );
     }
     setArray(arr); //id, hid, day, start hour, start min, end hour, end min
@@ -55,10 +59,23 @@ function ViewAppointmentRequests() {
     setCounter(1);
   }
 
+  const approveRequest = () => 
+  {
+    // Axios.post("http://localhost:3001/api/addComplaint_student", {Complain_ID: ID, Complain_Title: title, Complain_Description: description, User_ID: check_id})
+    // .then(() => {
+    //   setMover(1);
+    // })
+    // .catch((err) => {
+    //   alert("Error In Submitting Complain");
+    // });
+
+  }
+
   return (
     <div className="App">
       <div className="homepage">
         <h2>Appointment Requests</h2>
+
         <div>{array}</div>
 
         {role_id === 3 ? (
