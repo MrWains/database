@@ -23,10 +23,10 @@ import {
   ViewDoctorInformation,
   EditPersonalProfile,
   ViewProfileDoctor,
-  ViewSchedule,
   ViewDoctorsSchedule,
   EditPersonalSchedule,
-  ScheduleAppointment
+  ScheduleAppointment,
+  ViewAppointmentRequests
 } from ".";
 
 const App = () => {
@@ -53,10 +53,10 @@ const App = () => {
           <Route exact path="/viewdoctorinformation" element={<ViewDoctorInformation />} />
           <Route exact path="/editpersonalprofile" element={<EditPersonalProfile />} />
           <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
-          <Route exact path="/viewschedule" element={<ViewSchedule />} />
           <Route exact path="/viewdoctorsschedule" element={<ViewDoctorsSchedule />} />
           <Route exact path="/editpersonalschedule" element={<EditPersonalSchedule />} />
           <Route exact path="/scheduleappointment" element={<ScheduleAppointment />} />
+          <Route exact path="/viewappointmentrequests" element={<ViewAppointmentRequests />} />
         </Routes>
       </MemoryRouter>
     </RecoilRoot>

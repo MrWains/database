@@ -7,7 +7,7 @@ import { useRecoilState } from "recoil";
 import roleIDAtom from "./atoms/roleID";
 
 
-function ViewDoctorsSchedule() {
+function ViewAppointmentRequests() {
   // listen to the response of fetch query and set aomic states accordingly to be passes
   const [array, setArray] = useState("");
   const [counter, setCounter] = useState(0);
@@ -19,11 +19,11 @@ function ViewDoctorsSchedule() {
       arr.push(
         <div>
           <h3>----------------</h3>
-          <div>Entry ID: {list[i].iddoctors_schedule}</div>
-          <div>Doctor ID: {list[i].hid}</div>
+          <div>Entry ID: {list[i].idappointment}</div>
+          <div>Doctor ID: {list[i].h_ID}</div>
+          <div>Student ID: {list[i].s_ID}</div>
           <div>Day: {list[i].day}</div>
-          <div>Starting Time: {list[i].start_hour}:{list[i].start_minute}</div>
-          <div>End Time: {list[i].end_hour}:{list[i].end_minute}</div>
+          <div>Requested Time: {list[i].start_hour}:{list[i].start_minute}</div>
         </div>
         
       );
@@ -31,8 +31,8 @@ function ViewDoctorsSchedule() {
     setArray(arr); //id, hid, day, start hour, start min, end hour, end min
   };
 
-  const updateDoctorsSchedule = () => {
-    Axios.get("http://localhost:3001/api/sendDoctorSchedule").then(function (
+  const updateAppointmentRequests = () => {
+    Axios.get("http://localhost:3001/api/sendAppointmentRequests").then(function (
       response
     ) {
       listmaker(response.data);
@@ -40,44 +40,29 @@ function ViewDoctorsSchedule() {
   };
 
   // makes call to backend to execute fetch query
-  const fetchDoctorsSchedule = () => {
+  const fetchAppointmentRequests = () => {
     // send fetch query
-    Axios.post("http://localhost:3001/api/doctorSchedule")
+    Axios.post("http://localhost:3001/api/AppointmentRequests")
       .then(() => {
-        updateDoctorsSchedule();
+        updateAppointmentRequests();
       })
       .catch((err) => {
         console.log(err);
       });
   };
   if (counter === 0) {
-    fetchDoctorsSchedule();
+    fetchAppointmentRequests();
     setCounter(1);
   }
 
   return (
     <div className="App">
       <div className="homepage">
-        <h2>Doctor Schedule</h2>
+        <h2>Appointment Requests</h2>
         <div>{array}</div>
 
-        {role_id === 2 ? (
-        <NavLink className="nav-link" to="/scheduleappointment">
-          <button>Schedule Appointment</button>
-        </NavLink>
-        ):(<h2 Illegal Role_ID />) }
-
-        {role_id === 2 ? (
-          <NavLink className="nav-link" to="/homestudent">
-            <button>Back</button>
-          </NavLink>
-
-        ):role_id === 3 ? (
+        {role_id === 3 ? (
           <NavLink className="nav-link" to="/homehw">
-            <button>Back</button>
-          </NavLink>
-        ):role_id === 1 ? (
-          <NavLink className="nav-link" to="/home">
             <button>Back</button>
           </NavLink>
         ):(<h2 Illegal Role_ID />) }
@@ -85,4 +70,4 @@ function ViewDoctorsSchedule() {
     </div>
   );
 }
-export default ViewDoctorsSchedule;
+export default ViewAppointmentRequests;

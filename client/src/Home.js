@@ -142,7 +142,7 @@ function Home() {
               <button onClick={fetchDoctorID}>View Information</button>
             </div>
 
-            <NavLink className="nav-link" to="/viewschedule">
+            <NavLink className="nav-link" to="/viewdoctorsschedule">
               <button>View Doctor Schedule</button>
             </NavLink>
 

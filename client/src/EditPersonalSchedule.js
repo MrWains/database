@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
 
 import checkIDAtom from "./atoms/checkID";
-import daysDoctorAtom from "./atoms/daysDoctor"
+import dayDoctorAtom from "./atoms/dayDoctor"
 import starthourDoctorAtom from "./atoms/starthourDoctor"
 import startminuteDoctorAtom from "./atoms/startminuteDoctor"
 import endhourDoctorAtom from "./atoms/endhourDoctor"
@@ -15,7 +15,7 @@ import endminuteDoctorAtom from "./atoms/endminuteDoctor"
 function EditPersonalSchedule() {
   // state variables
   const [check_id] = useRecoilState(checkIDAtom);
-  const [daysDoctor, setdaysDoctor] = useRecoilState(daysDoctorAtom);
+  const [dayDoctor, setdayDoctor] = useRecoilState(dayDoctorAtom);
   const [starthourDoctor, setstarthourDoctor] = useRecoilState(starthourDoctorAtom);
   const [startminuteDoctor, setstartminuteDoctor] = useRecoilState(startminuteDoctorAtom);
   const [endhourDoctor, setendhourDoctor] = useRecoilState(endhourDoctorAtom);
@@ -25,7 +25,7 @@ function EditPersonalSchedule() {
   const UpdateSchedule = () =>
   {
     Axios.post("http://localhost:3001/api/updatedoctorschedule", {
-      days: daysDoctor,
+      day: dayDoctor,
       startHour: starthourDoctor,
       startMinute: startminuteDoctor,
       endHour: endhourDoctor,
@@ -41,13 +41,13 @@ function EditPersonalSchedule() {
     <div className="App">
       <div className="homepage">
         <h2>Update Doctor Schedule</h2>
-        <label>Days</label>
+        <label>Day (e.g: monday)</label>
         <input
               type="text"
-              name="days"
-              value={daysDoctor}
+              name="day"
+              value={dayDoctor}
               onChange={(e) => {
-                setdaysDoctor(e.target.value);
+                setdayDoctor(e.target.value);
               }}/>
         <label>Start Hour (24 hour format)</label>
         <input

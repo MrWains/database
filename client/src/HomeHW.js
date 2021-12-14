@@ -10,7 +10,7 @@ import firstNameDoctorAtom from "./atoms/firstNameDoctor"
 import middleNameDoctorAtom from "./atoms/middleNameDoctor"
 import lastNameDoctorAtom from "./atoms/lastNameDoctor"
 import specializationDoctorAtom from "./atoms/specializationDoctor"
-import daysDoctorAtom from "./atoms/daysDoctor"
+import dayDoctorAtom from "./atoms/dayDoctor"
 import starthourDoctorAtom from "./atoms/starthourDoctor"
 import startminuteDoctorAtom from "./atoms/startminuteDoctor"
 import endhourDoctorAtom from "./atoms/endhourDoctor"
@@ -25,7 +25,7 @@ function HomeStudent() {
   const [middleNameDoctor, setMiddleNameDoctor] = useRecoilState(middleNameDoctorAtom);
   const [lastNameDoctor, setLastNameDoctor] = useRecoilState(lastNameDoctorAtom);
   const [specializationDoctor, setSpecializationDoctor] = useRecoilState(specializationDoctorAtom);
-  const [daysDoctor, setdaysDoctor] = useRecoilState(daysDoctorAtom);
+  const [dayDoctor, setdayDoctor] = useRecoilState(dayDoctorAtom);
   const [starthourDoctor, setstarthourDoctor] = useRecoilState(starthourDoctorAtom);
   const [startminuteDoctor, setstartminuteDoctor] = useRecoilState(startminuteDoctorAtom);
   const [endhourDoctor, setendhourDoctor] = useRecoilState(endhourDoctorAtom);
@@ -85,7 +85,7 @@ function HomeStudent() {
 
         console.log(response.data);
 
-        setdaysDoctor(response.data.days);
+        setdayDoctor(response.data.day);
         setstarthourDoctor(response.data.start_hour);
         setstartminuteDoctor(response.data.start_minute);
         setendhourDoctor(response.data.end_hour);
@@ -118,6 +118,10 @@ function HomeStudent() {
 
         <NavLink className="nav-link" to="/editpersonalschedule">
           <button onClick={schedulecollector}>Edit Schedule</button>
+        </NavLink>
+
+        <NavLink className="nav-link" to="/viewappointmentrequests">
+          <button>View Appointment Requests</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">

@@ -382,7 +382,7 @@ app.post("/api/updatedoctorprofile", (req, res) => {
 // View Schedule
 app.post("/api/doctorSchedule", (req, res) => {
   //const sqlFetch = "SELECT iddoctor_schedule, subject, start_year, start_month, start_date, start_hours, start_minutes, end_year, end_month, end_date, end_hours, end_minutes, is_all_day FROM doctor_schedule";
-  const sqlFetch = "SELECT hid, days, start_hour, start_minute, end_hour, end_minute FROM doctors_schedule";
+  const sqlFetch = "SELECT iddoctors_schedule, hid, day, start_hour, start_minute, end_hour, end_minute FROM doctors_schedule";
   db.query(sqlFetch, (err, result) => {
     if (err || result.length === 0) {
       toReturn = "Query Failed to Execute!";
@@ -426,17 +426,17 @@ app.get("/api/fetchDoctorSchedule", (req, res) => {
 
 // update doctor's schedule information
 app.post("/api/updatedoctorschedule", (req, res) => {
-  const receivedDays = req.body.days;
+  const receivedDay = req.body.day;
   const receivedStartHour = req.body.startHour;
   const receivedStartMinute = req.body.startMinute;
   const receivedEndHour = req.body.endHour;
   const receivedEndMinute = req.body.endMinute;
   const receivedHW_ID = req.body.Check_ID;
 
-  console.log("hereeee: ", receivedDays, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID);
+  console.log("hereeee: ", receivedDay, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID);
 
-  const sqlUpdate = "UPDATE doctors_schedule SET days=?, start_hour=?, start_minute=?, end_hour=?, end_minute=? WHERE hid=?;";
-  db.query(sqlUpdate, [receivedDays, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID], (err, result) => {
+  const sqlUpdate = "UPDATE doctors_schedule SET day=?, start_hour=?, start_minute=?, end_hour=?, end_minute=? WHERE hid=?;";
+  db.query(sqlUpdate, [receivedDay, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID], (err, result) => {
       toReturn = "Update Query Run";
       res.send(toReturn);
     }
@@ -463,6 +463,27 @@ app.post("/api/scheduleAppointment", (req, res) => {
       res.send(toReturn);
     }
   );
+});
+
+// View Appointment Requests
+app.post("/api/AppointmentRequests", (req, res) => {
+  const sqlFetch = "SELECT idappointment, h_ID, s_ID, day, start_hour, start_minute, slot_status FROM appointment";
+  db.query(sqlFetch, (err, result) => {
+    if (err || result.length === 0) {
+      toReturn = "Query Failed to Execute!";
+      res.send(toReturn);
+    } else {
+      canReturn = result;
+      res.send(canReturn);
+    }
+  });
+});
+
+// Send Appointment Requests
+app.get("/api/sendAppointmentRequests", (req, res) => {
+  if (canReturn != "") {
+    res.send(canReturn);
+  }
 });
 
 // listening on port 3001
