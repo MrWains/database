@@ -76,6 +76,7 @@ function ViewAppointmentRequests() {
 
   return (
     <div className="App">
+      <div className="topbar"> Health@LUMS</div>
       <div className="homepage">
         <h2>Appointment Requests</h2>
 

@@ -42,8 +42,10 @@ function EditPersonalSchedule() {
 
   return (
     <div className="App">
+      <div className="topbar"> Health@LUMS</div>
       <div className="homepage">
         <h2>Update Doctor Schedule</h2>
+        <div className = "container">
         
         <label>EntryID (e.g: monday)</label>
         <input
@@ -95,12 +97,13 @@ function EditPersonalSchedule() {
                 setendminuteDoctor(e.target.value);
               }}/>
 
-          <NavLink className="nav-link" to="/homehw">
+        <NavLink className="nav-link" to="/homehw">
           <button onClick={UpdateSchedule}>Save Changes</button>
         </NavLink>
         <NavLink className="nav-link" to="/homehw">
           <button>Back</button>
         </NavLink>
+      </div>
       </div>
     </div>
   );

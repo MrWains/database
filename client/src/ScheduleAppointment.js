@@ -38,7 +38,9 @@ function ScheduleAppointment() {
     <div>
       {role_id === 2 ? (
       <div className="App">
+        <div className="topbar"> Health@LUMS</div>
         <div className="homepage">
+        <div className = "container">
           <h2>Schedule an Appointment</h2>
 
           <label>Doctor ID</label>
@@ -80,7 +82,6 @@ function ScheduleAppointment() {
             }}
           />
 
-
           <NavLink className="nav-link" to="/homestudent">
             <button onClick={scheduleAppointment}>Submit</button>
           </NavLink>
@@ -88,6 +89,7 @@ function ScheduleAppointment() {
           <NavLink className="nav-link" to="/viewdoctorsschedule">
             <button>Back</button>
           </NavLink>
+        </div>
         </div>
       </div>
         ): (<h2 Illegal Role_ID and Mover />)}

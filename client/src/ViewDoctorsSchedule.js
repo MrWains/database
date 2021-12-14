@@ -57,7 +57,9 @@ function ViewDoctorsSchedule() {
 
   return (
     <div className="App">
+      <div className="topbar"> Health@LUMS</div>
       <div className="homepage">
+      <div className = "container">
         <h2>Doctor Schedule</h2>
         <div>{array}</div>
 
@@ -81,6 +83,7 @@ function ViewDoctorsSchedule() {
             <button>Back</button>
           </NavLink>
         ):(<h2 Illegal Role_ID />) }
+      </div>
       </div>
     </div>
   );
