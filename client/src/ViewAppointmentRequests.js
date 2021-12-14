@@ -12,6 +12,8 @@ function ViewAppointmentRequests() {
   const [array, setArray] = useState("");
   const [counter, setCounter] = useState(0);
   const [role_id, setRole_id] = useRecoilState(roleIDAtom);
+  const [slot_status,setSlotStatus] = useState(0);
+  const [mover,setMover] = useState(0);
 
   const listmaker = (list) => {
     const arr = [];
@@ -61,13 +63,14 @@ function ViewAppointmentRequests() {
 
   const approveRequest = () => 
   {
-    // Axios.post("http://localhost:3001/api/addComplaint_student", {Complain_ID: ID, Complain_Title: title, Complain_Description: description, User_ID: check_id})
-    // .then(() => {
-    //   setMover(1);
-    // })
-    // .catch((err) => {
-    //   alert("Error In Submitting Complain");
-    // });
+    Axios.post("http://localhost:3001/api/approveAppointment", 
+    {slotStatus:slot_status})
+    .then(() => {
+      setMover(1);
+    })
+    .catch((err) => {
+      alert("Error In Submitting Complain");
+    });
 
   }
 
@@ -80,6 +83,10 @@ function ViewAppointmentRequests() {
 
         {role_id === 3 ? (
           <NavLink className="nav-link" to="/homehw">
+            <button>Back</button>
+          </NavLink>
+        ): role_id === 1 ? (
+          <NavLink className="nav-link" to="/home">
             <button>Back</button>
           </NavLink>
         ):(<h2 Illegal Role_ID />) }

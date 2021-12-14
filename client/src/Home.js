@@ -148,6 +148,10 @@ function Home() {
               <button>View Doctor Schedule</button>
             </NavLink>
 
+            <NavLink className="nav-link" to="/viewappointmentrequests">
+              <button className = "button-left">View Appointment Requests</button>
+            </NavLink>
+
             <NavLink className="nav-link" to="/editcontactus">
               <button  className = "button-line" onClick={fetchContactUs}>Edit Contact Us</button>
             </NavLink>
