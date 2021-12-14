@@ -433,7 +433,7 @@ app.post("/api/updatedoctorschedule", (req, res) => {
   const receivedEndMinute = req.body.endMinute;
   const receivedHW_ID = req.body.Check_ID;
 
-  console.log("hereeee: ", receivedDay, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID);
+  console.log("receieved: ", receivedDay, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID);
 
   const sqlUpdate = "UPDATE doctors_schedule SET day=?, start_hour=?, start_minute=?, end_hour=?, end_minute=? WHERE hid=?;";
   db.query(sqlUpdate, [receivedDay, receivedStartHour, receivedStartMinute, receivedEndHour, receivedEndMinute, receivedHW_ID], (err, result) => {

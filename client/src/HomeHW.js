@@ -11,6 +11,7 @@ import middleNameDoctorAtom from "./atoms/middleNameDoctor"
 import lastNameDoctorAtom from "./atoms/lastNameDoctor"
 import specializationDoctorAtom from "./atoms/specializationDoctor"
 import dayDoctorAtom from "./atoms/dayDoctor"
+import entryIDDoctorAtom from "./atoms/entryIDDoctor"
 import starthourDoctorAtom from "./atoms/starthourDoctor"
 import startminuteDoctorAtom from "./atoms/startminuteDoctor"
 import endhourDoctorAtom from "./atoms/endhourDoctor"
@@ -26,6 +27,7 @@ function HomeStudent() {
   const [lastNameDoctor, setLastNameDoctor] = useRecoilState(lastNameDoctorAtom);
   const [specializationDoctor, setSpecializationDoctor] = useRecoilState(specializationDoctorAtom);
   const [dayDoctor, setdayDoctor] = useRecoilState(dayDoctorAtom);
+  const [entryIDDoctor, setentryIDDoctor] = useRecoilState(entryIDDoctorAtom);
   const [starthourDoctor, setstarthourDoctor] = useRecoilState(starthourDoctorAtom);
   const [startminuteDoctor, setstartminuteDoctor] = useRecoilState(startminuteDoctorAtom);
   const [endhourDoctor, setendhourDoctor] = useRecoilState(endhourDoctorAtom);
@@ -86,6 +88,7 @@ function HomeStudent() {
         console.log(response.data);
 
         setdayDoctor(response.data.day);
+        setentryIDDoctor(response.data.iddoctors_schedule)
         setstarthourDoctor(response.data.start_hour);
         setstartminuteDoctor(response.data.start_minute);
         setendhourDoctor(response.data.end_hour);

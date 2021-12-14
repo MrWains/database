@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 
 import checkIDAtom from "./atoms/checkID";
 import dayDoctorAtom from "./atoms/dayDoctor"
+import entryIDDoctorAtom from "./atoms/entryIDDoctor"
 import starthourDoctorAtom from "./atoms/starthourDoctor"
 import startminuteDoctorAtom from "./atoms/startminuteDoctor"
 import endhourDoctorAtom from "./atoms/endhourDoctor"
@@ -15,6 +16,7 @@ import endminuteDoctorAtom from "./atoms/endminuteDoctor"
 function EditPersonalSchedule() {
   // state variables
   const [check_id] = useRecoilState(checkIDAtom);
+  const [entryIDDoctor, setentryIDDoctor] = useRecoilState(entryIDDoctorAtom);
   const [dayDoctor, setdayDoctor] = useRecoilState(dayDoctorAtom);
   const [starthourDoctor, setstarthourDoctor] = useRecoilState(starthourDoctorAtom);
   const [startminuteDoctor, setstartminuteDoctor] = useRecoilState(startminuteDoctorAtom);
@@ -25,6 +27,7 @@ function EditPersonalSchedule() {
   const UpdateSchedule = () =>
   {
     Axios.post("http://localhost:3001/api/updatedoctorschedule", {
+      entryID: entryIDDoctor, 
       day: dayDoctor,
       startHour: starthourDoctor,
       startMinute: startminuteDoctor,
@@ -41,6 +44,15 @@ function EditPersonalSchedule() {
     <div className="App">
       <div className="homepage">
         <h2>Update Doctor Schedule</h2>
+        
+        <label>EntryID (e.g: monday)</label>
+        <input
+              type="text"
+              name="entryID"
+              value={entryIDDoctor}
+              onChange={(e) => {
+                setentryIDDoctor(e.target.value);
+              }}/>
         <label>Day (e.g: monday)</label>
         <input
               type="text"
