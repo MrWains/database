@@ -41,6 +41,8 @@ function ComplaintSuggestion() {
       ) : mover === 0 && role_id === 2 ? (
         <div className="App">
           <div className="homepage">
+            <div className="container">
+
             <h2>Complaints / Suggestions</h2>
 
             <label>ID</label>
@@ -75,10 +77,12 @@ function ComplaintSuggestion() {
               <button>Back</button>
             </NavLink>
           </div>
+          </div> 
         </div>
         ) : mover === 0 && role_id === 3 ? (
           <div className="App">
           <div className="homepage">
+            <div className="container">
             <h2>Complaints / Suggestions</h2>
 
             <label>ID</label>
@@ -113,6 +117,7 @@ function ComplaintSuggestion() {
               <button>Back</button>
             </NavLink>
           </div>
+        </div>
         </div>
         ) : (<h2 Illegal Role_ID and Mover />)}
     </div>

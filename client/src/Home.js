@@ -107,15 +107,16 @@ function Home() {
       ) : (
         <div className="App">
           <div className="homepage">
+            <div className = "container">
             
             <h2>Admin Home Page</h2>
             
             <NavLink className="nav-link" to="/addstudent">
-              <button>Add a student</button>
+              <button className = "button-left">Add a student</button>
             </NavLink>
 
             <NavLink className="nav-link" to="/adddoctor">
-              <button>Add a doctor</button>
+              <button className = "button-right" >Add a doctor</button>
             </NavLink>
 
             <div className="homepage_search">
@@ -139,7 +140,7 @@ function Home() {
                   setDoctor_id(e.target.value);
                 }}
               />
-              <button onClick={fetchDoctorID}>View Information</button>
+              <button  onClick={fetchDoctorID}>View Information</button>
             </div>
 
             <NavLink className="nav-link" to="/viewdoctorsschedule">
@@ -147,16 +148,17 @@ function Home() {
             </NavLink>
 
             <NavLink className="nav-link" to="/editcontactus">
-              <button onClick={fetchContactUs}>Edit Contact Us</button>
+              <button  className = "button-line" onClick={fetchContactUs}>Edit Contact Us</button>
             </NavLink>
             
             <NavLink className="nav-link" to="/viewcomplaintssuggestions">
-              <button>View Complaints/Suggestions</button>
+              <button  className = "button-line" >View Complaints/Suggestions</button>
             </NavLink>
 
             <NavLink className="nav-link" to="/">
               <button>LogOut</button>
             </NavLink>
+          </div>
           </div>
         </div>
       )}

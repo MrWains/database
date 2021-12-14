@@ -28,9 +28,9 @@ function ViewContactUs() {
     <div>
       <div className="App">
         <div className="homepage">
+          <div className = "container"> 
           <h2>Edit Contact Us</h2>
 
-          <div className="editcontactus_address">
             <label>Address</label>
             <input
               type="text"
@@ -40,9 +40,8 @@ function ViewContactUs() {
                 setAddress(e.target.value);
               }}
             />
-          </div>
-
-          <div className="editcontactus_phoneNum">
+      
+  
             <label>Phone Number</label>
             <input
               type="text"
@@ -52,7 +51,7 @@ function ViewContactUs() {
                 setPhone_Num(e.target.value);
               }}
             />
-          </div>
+        
 
           <NavLink className="nav-link" to="/home">
             <button>Back Without Updating</button>
@@ -62,6 +61,7 @@ function ViewContactUs() {
             <button onClick={setContactInfo}>Update and Go Back</button>
           </NavLink>
         
+        </div>
         </div>
       </div>
     </div>

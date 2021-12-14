@@ -15,13 +15,13 @@ function ViewDoctorsList() {
         <div>
           <h3>Doctor {i + 1}</h3>
           <label>First Name:</label>
-          <div>{list[i].first_name}</div>
+          <div className = "label-black">{list[i].first_name}</div>
           <label>Middle Name:</label>
-          <div>{list[i].middle_name}</div>
+          <div className = "label-black">{list[i].middle_name}</div>
           <label>Last Name:</label>
-          <div>{list[i].last_name}</div>
+          <div className = "label-black">{list[i].last_name}</div>
           <label>Specialization:</label>
-          <div>{list[i].specialization}</div>
+          <div className = "label-black">{list[i].specialization}</div>
         </div>
       );
     }
@@ -55,11 +55,13 @@ function ViewDoctorsList() {
   return (
     <div className="App">
       <div className="homepage">
+        <div className = "container">
         <h2>Doctor List</h2>
         <div>{array}</div>
         <NavLink className="nav-link" to="/homestudent">
           <button>Back</button>
         </NavLink>
+        </div>
       </div>
     </div>
   );

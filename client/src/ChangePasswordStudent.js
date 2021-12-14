@@ -71,6 +71,7 @@ function ChangePasswordStudent() {
       ) : mover === 0 && role_id === 2? (
         <div className="App">
           <div className="homepage">
+            <div className="container">
             <h2>Change Password</h2>
 
             <label>Old Password</label>
@@ -106,9 +107,11 @@ function ChangePasswordStudent() {
             </NavLink>
           </div>
         </div>
+        </div>
       ) : mover === 0 && role_id === 3? (
         <div className="App">
         <div className="homepage">
+          <div className = "container">
           <h2>Change Password</h2>
 
           <label>Old Password</label>
@@ -143,9 +146,11 @@ function ChangePasswordStudent() {
             <button>Back</button>
           </NavLink>
         </div>
+        </div>
       </div>
       ) : (<h2 Illegal Role_ID and Mover />)}
     </div>
+    
   );
 }
 

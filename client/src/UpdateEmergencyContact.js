@@ -31,9 +31,9 @@ function EditEmergencyContact() {
     <div>
       <div className="App">
         <div className="homepage">
+          <div className = "container">
           <h2>Edit Emergency Contact Information</h2>
 
-          <div className="editemergencycontact_firstname">
             <label>First Name</label>
             <input
               type="text"
@@ -43,9 +43,8 @@ function EditEmergencyContact() {
                 setEmergencyFirstName(e.target.value);
               }}
             />
-          </div>
-
-          <div className="editemergencycontact_lastname">
+          
+          
             <label>Last Name</label>
             <input
               type="text"
@@ -55,9 +54,8 @@ function EditEmergencyContact() {
                 setEmergencyLastName(e.target.value);
               }}
             />
-          </div>
+    
 
-          <div className="editemergencycontact_contact">
             <label>Contact Number</label>
             <input
               type="text"
@@ -67,7 +65,7 @@ function EditEmergencyContact() {
                 setEmergencyContact(e.target.value);
               }}
             />
-          </div>
+      
 
           <NavLink className="nav-link" to="/homestudent">
             <button>Back Without Updating</button>
@@ -78,6 +76,7 @@ function EditEmergencyContact() {
           </NavLink>
         
         </div>
+      </div>
       </div>
     </div>
   );

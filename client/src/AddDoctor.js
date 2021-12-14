@@ -43,6 +43,7 @@ function AddDoctor() {
       ) : (
         <div className="App">
           <div className="homepage">
+          <div className = "container">
             <h2>Add Doctor</h2>
 
             <label>worker ID</label>
@@ -105,6 +106,7 @@ function AddDoctor() {
             <NavLink className="nav-link" to="/home">
               <button>Back</button>
             </NavLink>
+          </div>
           </div>
         </div>
       )}

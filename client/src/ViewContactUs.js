@@ -17,13 +17,16 @@ function ViewContactUs() {
     <div>
         <div className="App">
           <div className="homepage">
+            <div className= "container">
+
+            
             <h2>Contact Us</h2>
 
             <label>Address:</label>
-            <label>{address}</label>
+            <label className = "label-black">{address}</label>
 
             <label>Phone Number:</label>
-            <label>{phone_num}</label>
+            <label className = "label-black">{phone_num}</label>
             
             { role_id === 2 ? (
               <NavLink className="nav-link" to="/homestudent">
@@ -35,6 +38,7 @@ function ViewContactUs() {
               </NavLink>
             ) : (<h2 Illegal Role_ID />) }
           </div>
+        </div>
         </div>
     </div>
   );

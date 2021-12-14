@@ -63,7 +63,8 @@ function Login() {
       ) : responseData === 3 ? (
         <Navigate to="/homehw" />
       ) : (
-        <div className="login`">
+        <div className="login">
+          <div className= "container" > 
           <h2>Log In</h2>
           <label>ID</label>
           <input
@@ -83,8 +84,10 @@ function Login() {
           />
 
           <button onClick={logIn}>Log In</button>
+          </div>
         </div>
       )}
+      
     </div>
   );
 }

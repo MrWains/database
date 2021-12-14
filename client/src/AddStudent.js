@@ -51,6 +51,7 @@ function Add_Student() {
       ) : (
         <div className="App">
           <div className="homepage">
+          <div className = "container">
             <h2>Add Student</h2>
             <label>First Name</label>
             <input
@@ -139,6 +140,7 @@ function Add_Student() {
             <NavLink className="nav-link" to="/home">
               <button>Back</button>
             </NavLink>
+          </div>
           </div>
         </div>
       )}

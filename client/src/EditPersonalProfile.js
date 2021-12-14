@@ -37,6 +37,7 @@ function EditPersonalProfile() {
   return (
     <div className="App">
       <div className="homepage">
+        <div className="container">
         <h2>Update Doctor Information</h2>
         <label>First Name</label>
         <input
@@ -78,6 +79,7 @@ function EditPersonalProfile() {
         <NavLink className="nav-link" to="/homehw">
           <button>Back</button>
         </NavLink>
+      </div>
       </div>
     </div>
   );
