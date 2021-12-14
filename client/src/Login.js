@@ -56,6 +56,7 @@ function Login() {
 
   return (
     <div className="App">
+      <div className="topbar"> Health@LUMS</div>
       {responseData === 1 ? (
         <Navigate to="/home" />
       ) : responseData === 2 ? (

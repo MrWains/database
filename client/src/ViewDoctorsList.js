@@ -54,6 +54,7 @@ function ViewDoctorsList() {
 
   return (
     <div className="App">
+      <div className="topbar"> Health@LUMS</div>
       <div className="homepage">
         <div className = "container">
         <h2>Doctor List</h2>

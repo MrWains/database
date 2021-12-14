@@ -50,6 +50,7 @@ function Add_Student() {
         <Navigate to="/home" />
       ) : (
         <div className="App">
+          <div className="topbar"> Health@LUMS</div>
           <div className="homepage">
           <div className = "container">
             <h2>Add Student</h2>

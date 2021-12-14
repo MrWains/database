@@ -36,6 +36,7 @@ function EditPersonalProfile() {
 
   return (
     <div className="App">
+      <div className="topbar"> Health@LUMS</div>
       <div className="homepage">
         <div className="container">
         <h2>Update Doctor Information</h2>
