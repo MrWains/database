@@ -68,31 +68,33 @@ function HomeStudent() {
   return (
     <div className="App">
       <div className="student_homepage">
+        <div className = "container">
         <h2>Health Worker Home Page</h2>
 
         <NavLink className="nav-link" to="/viewprofiledoctor">
-          <button>View Personal Profile</button>
+          <button className = "button-left" >View Personal Profile</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/editpersonalprofile">
-          <button onClick={profilecollector}>Edit Profile</button>
+          <button className = "button-right" onClick={profilecollector}>Edit Profile</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">
-          <button>Change Password</button>
+          <button className = "button-left" >Change Password</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/viewcontactus">
-          <button onClick={fetchContactUs}>View Contact Us</button>
+          <button className = "button-right" onClick={fetchContactUs}>View Contact Us</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/complaintsuggestion">
-          <button>Add Complain/Suggestion</button>
+          <button className = "button-left">Add Complaint/Suggestions</button>
         </NavLink>
         
         <NavLink className="nav-link" to="/">
-          <button>LogOut</button>
+          <button className = "button-right" >LogOut</button>
         </NavLink>
+        </div>
       </div>
     </div>
   );

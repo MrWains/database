@@ -70,35 +70,38 @@ function HomeStudent() {
   return (
     <div className="App">
       <div className="student_homepage">
+        <div className = "container">
+
         <h2>Student Home Page</h2>
 
         <NavLink className="nav-link" to="/viewprofilestudent">
-          <button>View Personal Profile</button>
+          <button className = "button-left" >View Personal Profile</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/viewdoctorslist">
-          <button>View Doctors List</button>
+          <button className = "button-right" >View Doctors List</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/updateemergency">
-          <button onClick={fetchEmergency}>Update Emergency Contact</button>
+          <button className = "button-left" onClick={fetchEmergency} >Update Emergency Contact</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">
-          <button>Change Password</button>
+          <button className = "button-right">Change Password</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/complaintsuggestion">
-          <button>Add Complain/Suggestion</button>
+          <button className = "button-left" >Add Complaint/Suggestion</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/viewcontactus">
-          <button onClick={fetchContactUs}>View Contact Us</button>
+          <button  className = "button-right" onClick={fetchContactUs}>View Contact Us</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/">
-          <button>LogOut</button>
+          <button className = "button-left" >LogOut</button>
         </NavLink>
+      </div>
       </div>
     </div>
   );

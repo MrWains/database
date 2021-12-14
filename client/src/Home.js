@@ -112,11 +112,11 @@ function Home() {
             <h2>Admin Home Page</h2>
             
             <NavLink className="nav-link" to="/addstudent">
-              <button className = "button-line">Add a student</button>
+              <button className = "button-left">Add a student</button>
             </NavLink>
 
             <NavLink className="nav-link" to="/adddoctor">
-              <button className = "button-line" >Add a doctor</button>
+              <button className = "button-right" >Add a doctor</button>
             </NavLink>
 
             <div className="homepage_search">

@@ -53,29 +53,31 @@ function ViewProfileStudent() {
   return (
     <div className="App">
       <div className="homepage">
+      <div className = "container">
         <h2>My Profile</h2>
         <label>First Name</label>
-        <div>{firstName}</div>
+        <div className = "label-black">{firstName}</div>
         <label>Middle Name</label>
-        <div>{middleName}</div>
+        <div className = "label-black">{middleName}</div>
         <label>Last Name</label>
-        <div>{lastName}</div>
+        <div className = "label-black">{lastName}</div>
         <label>Roll Number</label>
-        <div>{rollNumber}</div>
+        <div className = "label-black">{rollNumber}</div>
         <label>Contact Number</label>
-        <div>{contactNumber}</div>
+        <div className = "label-black">{contactNumber}</div>
         <label>Batch</label>
-        <div>{batch}</div>
+        <div className = "label-black">{batch}</div>
         <label>Emergency First Name</label>
-        <div>{emergencyFName}</div>
+        <div className = "label-black">{emergencyFName}</div>
         <label>Emergency Last Name</label>
-        <div>{emergencyLName}</div>
+        <div className = "label-black">{emergencyLName}</div>
         <label>Emergency Contact Number</label>
-        <div>{emergency}</div>
+        <div className = "label-black" >{emergency}</div>
 
         <NavLink className="nav-link" to="/homestudent">
           <button>Back</button>
         </NavLink>
+      </div>
       </div>
     </div>
   );

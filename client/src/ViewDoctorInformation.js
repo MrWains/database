@@ -32,20 +32,22 @@ function ViewDoctorInformation() {
   return (
     <div className="App">
       <div className="homepage">
+        <div className = "container">
         <h2>Doctor Information</h2>
         <label>Doctor ID</label>
-        <div>{workerID}</div>
+        <div className = "label-black" >{workerID}</div>
         <label>First Name</label>
         <div>{firstName}</div>
         <label>Middle Name</label>
-        <div>{middleName}</div>
+        <div className = "label-black">{middleName}</div>
         <label>Last Name</label>
-        <div>{lastName}</div>
+        <div className = "label-black">{lastName}</div>
         <label>Specialization</label>
-        <div>{specialization}</div>
+        <div className = "label-black">{specialization}</div>
         <NavLink className="nav-link" to="/home">
           <button>Back</button>
         </NavLink>
+      </div>
       </div>
     </div>
   );

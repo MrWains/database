@@ -54,11 +54,14 @@ function ViewComplaintsSuggestions() {
   return (
     <div className="App">
       <div className="homepage">
+        <div className = "container">
         <h2>Complaints/Suggestions</h2>
+        
         <div>{array}</div>
         <NavLink className="nav-link" to="/home">
           <button>Back</button>
         </NavLink>
+      </div>
       </div>
     </div>
   );
