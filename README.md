@@ -26,6 +26,18 @@ To run the project locally import the `.sql` file into a local SQL tool like myS
 ### `Node Index.js`
 Runs the server side of the project. 
 
+## Credentials for Testing
+Admin:  ID = 100  Password = 5429333ad1550e95e4b6323cae301d427b8924ef
+        ID = 1007 Password = 380b9fa43ba0c9bbda68473435cdb2e9df93addf
+
+
+Student:ID = 20014 Password = b01beb2136551ab2bbb7b08f3ec80169fe2b4926
+        ID = 20009 Password = cae62d4a473cb4f275a6c33f63f92c83f5725995
+        
+
+Doctor: ID = 30012 Password = e1458ccba4db593ad60b2e8751286ef90a68c4bf
+        ID = 30021 Password = d1198bfcc7861657d9748f9691da54120808f498
+
 ## Project Structure
 
 The project is split in two parts : the root directory which is opened on the server side and the client directory which is opened on the client side.
