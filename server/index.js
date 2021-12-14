@@ -31,6 +31,7 @@ let shouldReturn = ""; // for fetching contact us
 let mustReturn = ""; // for fetching doctor list
 let wouldReturn = ""; // for fetching complaints/suggestions
 let mayReturn = ""; // for fetching emergency contact's information
+let canReturn = ""; // for fetching doctor schedule
 
 // server status checker
 app.get("/", (req, res) => {
@@ -378,6 +379,27 @@ app.post("/api/updatedoctorprofile", (req, res) => {
   );
 });
 
+// View Schedule
+app.post("/api/doctorSchedule", (req, res) => {
+  //const sqlFetch = "SELECT iddoctor_schedule, subject, start_year, start_month, start_date, start_hours, start_minutes, end_year, end_month, end_date, end_hours, end_minutes, is_all_day FROM doctor_schedule";
+  const sqlFetch = "SELECT hid, days, start_hour, start_minute, end_hour, end_minute FROM doctors_schedule";
+  db.query(sqlFetch, (err, result) => {
+    if (err || result.length === 0) {
+      toReturn = "Query Failed to Execute!";
+      res.send(toReturn);
+    } else {
+      canReturn = result;
+      res.send(canReturn);
+    }
+  });
+});
+
+// Send schedule
+app.get("/api/sendDoctorSchedule", (req, res) => {
+  if (canReturn != "") {
+    res.send(canReturn);
+  }
+});
 
 
 // listening on port 3001

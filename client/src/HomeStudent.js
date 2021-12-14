@@ -68,8 +68,9 @@ function HomeStudent() {
   }
 
   return (
+    <div>
     <div className="App">
-      <div className="student_homepage">
+      <div className="homepage">
         <h2>Student Home Page</h2>
 
         <NavLink className="nav-link" to="/viewprofilestudent">
@@ -78,6 +79,10 @@ function HomeStudent() {
 
         <NavLink className="nav-link" to="/viewdoctorslist">
           <button>View Doctors List</button>
+        </NavLink>
+
+        <NavLink className="nav-link" to="/viewdoctorsschedule">
+          <button>View Doctors Schedule</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/updateemergency">
@@ -100,6 +105,7 @@ function HomeStudent() {
           <button>LogOut</button>
         </NavLink>
       </div>
+    </div>
     </div>
   );
 }

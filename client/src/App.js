@@ -23,6 +23,8 @@ import {
   ViewDoctorInformation,
   EditPersonalProfile,
   ViewProfileDoctor,
+  ViewSchedule,
+  ViewDoctorsSchedule
 } from ".";
 
 const App = () => {
@@ -36,28 +38,12 @@ const App = () => {
           <Route exact path="/homehw" element={<HomeHW />} />
           <Route exact path="/addstudent" element={<AddStudent />} />
           <Route exact path="/adddoctor" element={<AddDoctor />} />
-          <Route
-            exact
-            path="/complaintsuggestion"
-            element={<ComplaintSuggestion />}
-          />
+          <Route exact path="/complaintsuggestion" element={<ComplaintSuggestion />} />
           <Route exact path="/viewcontactus" element={<ViewContactUs />} />
-          <Route
-            exact
-            path="/updateemergency"
-            element={<UpdateEmergencyContact />}
-          />
+          <Route exact path="/updateemergency" element={<UpdateEmergencyContact />} />
           <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
-          <Route
-            exact
-            path="/viewprofilestudent"
-            element={<ViewProfileStudent />}
-          />
-          <Route
-            exact
-            path="/viewprofiledoctor"
-            element={<ViewProfileDoctor />}
-          />
+          <Route exact path="/viewprofilestudent" element={<ViewProfileStudent />} />
+          <Route exact path="/viewprofiledoctor" element={<ViewProfileDoctor />} />
           <Route
             exact
             path="/changepasswordstudent"
@@ -85,6 +71,8 @@ const App = () => {
             element={<EditPersonalProfile />}
           />
           <Route exact path="/viewdoctorslist" element={<ViewDoctorsList />} />
+          <Route exact path="/viewschedule" element={<ViewSchedule />} />
+          <Route exact path="/viewdoctorsschedule" element={<ViewDoctorsSchedule />} />
         </Routes>
       </MemoryRouter>
     </RecoilRoot>

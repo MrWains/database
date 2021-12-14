@@ -66,8 +66,9 @@ function HomeStudent() {
   };
 
   return (
+    <div>
     <div className="App">
-      <div className="student_homepage">
+      <div className="homepage">
         <h2>Health Worker Home Page</h2>
 
         <NavLink className="nav-link" to="/viewprofiledoctor">
@@ -76,6 +77,10 @@ function HomeStudent() {
 
         <NavLink className="nav-link" to="/editpersonalprofile">
           <button onClick={profilecollector}>Edit Profile</button>
+        </NavLink>
+
+        <NavLink className="nav-link" to="/viewdoctorsschedule">
+          <button>View Doctor Schedule</button>
         </NavLink>
 
         <NavLink className="nav-link" to="/changepasswordstudent">
@@ -94,6 +99,7 @@ function HomeStudent() {
           <button>LogOut</button>
         </NavLink>
       </div>
+    </div>
     </div>
   );
 }

@@ -142,6 +142,10 @@ function Home() {
               <button onClick={fetchDoctorID}>View Information</button>
             </div>
 
+            <NavLink className="nav-link" to="/viewschedule">
+              <button>View Doctor Schedule</button>
+            </NavLink>
+
             <NavLink className="nav-link" to="/editcontactus">
               <button onClick={fetchContactUs}>Edit Contact Us</button>
             </NavLink>

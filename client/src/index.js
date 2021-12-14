@@ -34,3 +34,5 @@ export { default as EditContactUs } from "./EditContactUs";
 export { default as ViewStudentInformation } from "./ViewStudentInformation";
 export { default as ViewDoctorInformation } from "./ViewDoctorInformation";
 export { default as EditPersonalProfile } from "./EditPersonalProfile";
+export { default as ViewSchedule } from "./ViewSchedule";
+export { default as ViewDoctorsSchedule } from "./ViewDoctorsSchedule";
