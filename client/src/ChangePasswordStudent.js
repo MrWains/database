@@ -70,6 +70,7 @@ function ChangePasswordStudent() {
         <Navigate to="/homehw" />
       ) : mover === 0 && role_id === 2? (
         <div className="App">
+          <div className="topbar"> Health@LUMS</div>
           <div className="homepage">
             <div className="container">
             <h2>Change Password</h2>

@@ -31,6 +31,7 @@ function EditEmergencyContact() {
     <div>
       <div className="App">
         <div className="homepage">
+        <div className="topbar"> Health@LUMS</div>
           <div className = "container">
           <h2>Edit Emergency Contact Information</h2>
 

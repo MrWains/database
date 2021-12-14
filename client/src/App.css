@@ -45,6 +45,18 @@
 .label-black {
   color: black;
 }
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  background-color: #86b1f0;
+  align-items: center;
+  align-content: center;
+  padding: 10px 550px;
+  font-weight: 600;
+  font-size: larger;
+}
 .login .h2 {
   color: black;
   font-weight: 900;

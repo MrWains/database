@@ -69,6 +69,7 @@ function HomeStudent() {
 
   return (
     <div className="App">
+      <div className="topbar"> Health@LUMS</div>
       <div className="student_homepage">
         <div className = "container">
 

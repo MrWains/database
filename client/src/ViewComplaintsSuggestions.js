@@ -54,6 +54,7 @@ function ViewComplaintsSuggestions() {
   return (
     <div className="App">
       <div className="homepage">
+      <div className="topbar"> Health@LUMS</div>
         <div className = "container">
         <h2>Complaints/Suggestions</h2>
         

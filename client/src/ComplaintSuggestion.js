@@ -81,6 +81,7 @@ function ComplaintSuggestion() {
         </div>
         ) : mover === 0 && role_id === 3 ? (
           <div className="App">
+            <div className="topbar"> Health@LUMS</div>
           <div className="homepage">
             <div className="container">
             <h2>Complaints / Suggestions</h2>

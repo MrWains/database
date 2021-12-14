@@ -42,6 +42,7 @@ function AddDoctor() {
         <Navigate to="/home" />
       ) : (
         <div className="App">
+          <div className="topbar"> Health@LUMS</div>
           <div className="homepage">
           <div className = "container">
             <h2>Add Doctor</h2>
